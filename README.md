@@ -1,4 +1,4 @@
-- Ensure Homebrew is install, iterm2 is in use and you have brew installed things you might need (yarn, neovim etc.)
+- Ensure Homebrew is install, iterm2 is in use and you have brew installed things you might need (yarn, stow, neovim etc.)
 
 - Clone down this repo into the HOME directory
 - cd ~/dotfiles

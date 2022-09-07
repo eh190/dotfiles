@@ -9,7 +9,9 @@ Youtube vid explaining stow use https://www.youtube.com/watch?v=90xMTKml9O0&t=37
 
 # NVIM
 
-- Install Vim Plug
+# NVIM
+
+- Install Vim Plug for Nvim
 
 `curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
 
@@ -20,3 +22,8 @@ Youtube vid explaining stow use https://www.youtube.com/watch?v=90xMTKml9O0&t=37
 # ZSH
 
 - Plugins will install automatically once zsh opened.
+
+# VIM
+
+- .vimrc has auto load plugin manager (vim plug) and auto load uninstalled plugins so it should (famous last words) be a case of just opening vim.
+- Whilst nvim lives in .config, vim lives in the HOME dir for now.

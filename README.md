@@ -1,3 +1,5 @@
+## Welcome to my Dotfiles!
+
 - Ensure Homebrew is install, iterm2 is in use and you have brew installed things you might need (yarn, stow, neovim etc.)
 
 - Clone down this repo into the HOME directory
@@ -7,9 +9,7 @@
 
 Youtube vid explaining stow use https://www.youtube.com/watch?v=90xMTKml9O0&t=371s
 
-# NVIM
-
-# NVIM
+## NVIM
 
 - Install Vim Plug for Nvim
 
@@ -19,11 +19,11 @@ Youtube vid explaining stow use https://www.youtube.com/watch?v=90xMTKml9O0&t=37
   https://github.com/neoclide/coc.nvim
   https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions
 
-# ZSH
+## ZSH
 
 - Plugins will install automatically once zsh opened.
 
-# VIM
+## VIM
 
 - .vimrc has auto load plugin manager (vim plug) and auto load uninstalled plugins so it should (famous last words) be a case of just opening vim.
 - Whilst nvim lives in .config, vim lives in the HOME dir for now.

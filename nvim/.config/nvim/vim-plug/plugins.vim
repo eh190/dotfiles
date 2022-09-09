@@ -12,6 +12,7 @@ Plug 'tpope/vim-commentary'
 
 " Themes
 Plug 'morhetz/gruvbox'
+Plug 'christianchiarulli/nvcode-color-schemes.vim'
 
 " Linting/prettier
 Plug 'dense-analysis/ale'

@@ -43,12 +43,12 @@ bindkey '^[[Z' complete-word  # shift + tab  | complete
 autoload -Uz colors && colors
 
 # Useful Functions
-source "$ZDOTDIR/zsh-functions.zsh"
+ source "$ZDOTDIR/zsh-functions.zsh"
 
 # Normal files to source
 #zsh_add_file "zsh-exports"
 #zsh_add_file "zsh-vim-mode"
-zsh_add_file "zsh-aliases.zsh"
+#zsh_add_file "zsh-functions.zsh"
 #zsh_add_file "zsh-prompt.zsh"
 
 # Plugins

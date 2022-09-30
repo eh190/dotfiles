@@ -7,3 +7,4 @@ source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/plug-config/vim-airline.vim
 " source $HOME/.config/nvim/plug-config/vim-rainbow.vim
 source $HOME/.config/nvim/plug-config/treesitter.vim
+source $HOME/.config/nvim/plug-config/gitsigns.vim

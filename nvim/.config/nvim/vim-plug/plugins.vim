@@ -22,6 +22,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Git
 Plug 'tpope/vim-fugitive'
+Plug 'lewis6991/gitsigns.nvim'  " remappings in gitsigns.vim config
 
 " Status Bar
 Plug 'vim-airline/vim-airline'

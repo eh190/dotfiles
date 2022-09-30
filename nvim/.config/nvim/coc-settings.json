@@ -13,7 +13,8 @@
     "typescriptreact", 
     "go", 
     "rust"
-  ]
+  ],
+  "Lua.telemetry.enable": true
 
   // python config
   // "python.linting.enabled": true,

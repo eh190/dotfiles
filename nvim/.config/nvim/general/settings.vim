@@ -7,6 +7,12 @@ let g:netrw_liststyle = 3
 " let g:netrw_browse_split = 4   
 let g:netrw_preview = 1
 
+" don't open new buffer for toggling netrw
+augroup AutoDeleteNetrwHiddenBuffers
+  au!
+  au FileType netrw setlocal bufhidden=wipe
+augroup end
+
 syntax enable                           " Enables syntax highlighing
 set hidden                              " Required to keep multiple buffers open multiple buffers
 " set nowrap                              " Display long lines as just one line

@@ -63,6 +63,11 @@ require('gitsigns').setup {
 
     -- Actions
     -- Full example mappings on https://github.com/lewis6991/gitsigns.nvim
+    map({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<CR>')
+    map({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<CR>')
+    map('n', '<leader>hS', gs.stage_buffer)
+    map('n', '<leader>hu', gs.undo_stage_hunk)
+    map('n', '<leader>hR', gs.reset_buffer)
     map('n', '<leader>hp', gs.preview_hunk)
     map('n', '<leader>hb', function() gs.blame_line{full=true} end)
     map('n', '<leader>tb', gs.toggle_current_line_blame)

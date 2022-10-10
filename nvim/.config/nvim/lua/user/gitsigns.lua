@@ -1,4 +1,9 @@
-lua << EOF
+local status_ok, gitsigns = pcall(require, "gitsigns")
+if not status_ok then
+  return
+end
+
+
 require('gitsigns').setup {
   signs = {
     add          = {hl = 'GitSignsAdd'   , text = '│', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
@@ -39,7 +44,8 @@ require('gitsigns').setup {
   yadm = {
     enable = false
   },
- on_attach = function(bufnr)
+  
+   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
 
     local function map(mode, l, r, opts)
@@ -62,7 +68,6 @@ require('gitsigns').setup {
     end, {expr=true})
 
     -- Actions
-    -- Full example mappings on https://github.com/lewis6991/gitsigns.nvim
     map({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<CR>')
     map({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<CR>')
     map('n', '<leader>hS', gs.stage_buffer)
@@ -79,4 +84,3 @@ require('gitsigns').setup {
     map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
   end
 }
-EOF

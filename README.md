@@ -1,6 +1,6 @@
 ## Welcome to my Dotfiles!
 
-- Ensure Homebrew is install, iterm2 is in use and you have brew installed things you might need (yarn, stow, neovim etc.)
+- Ensure Homebrew is install, iterm2 is in use and you have brew installed things you might need (yarn, stow, neovim, git etc.)
 
 - Clone down this repo into the HOME directory
 - cd ~/dotfiles
@@ -11,13 +11,8 @@ Youtube vid explaining stow use https://www.youtube.com/watch?v=90xMTKml9O0&t=37
 
 ## NVIM
 
-- Install Vim Plug for Nvim
-
-`curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
-
-- CocInstall LSP support for all files in `coc-settings.json`
-  https://github.com/neoclide/coc.nvim
-  https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions
+- This is my lua config
+- Uses Packer as the plug in manager. This should self install on start up if not already installed, and install any not installed plugins
 
 ## ZSH
 

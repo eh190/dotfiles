@@ -20,7 +20,8 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
-keymap("n", "<leader>e", ":Lex 30<cr>", opts)
+keymap("n", "<leader>e", ":Lex 30<CR>", opts) -- toggle netrw
+keymap("n", "<leader>pv", ":Lex 30 %:p:h<CR>", opts) -- open netrw on current dir
 
 -- Resize with arrows
 keymap("n", "<leader>u", ":resize +2<CR>", opts)
@@ -32,6 +33,9 @@ keymap("n", "<leader>l", ":vertical resize +2<CR>", opts)
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<C-q>", ":bdelete<CR>", opts)
+
+-- Session Management
+keymap("n", "<leader>ll", ":SessionManager load_last_session<CR>", opts)
 
 -- Gitsigns keymappings in the gitsigns.lua config file
 
@@ -47,7 +51,7 @@ keymap("v", ">", ">gv", opts)
 -- Move text up and down
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
-keymap("v", "p", '"_dP', opts) -- prevents defualt copy/paste. Keeps copied item as copied item 
+keymap("v", "p", '"_dP', opts) -- prevents defualt copy/paste. Keeps copied item as copied item
 
 -- Visual Block --
 -- Move text up and down

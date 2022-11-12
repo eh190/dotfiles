@@ -37,6 +37,7 @@ vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applicati
 vim.opt.guicursor = "" -- set fat cursor in insert mode nvimh
 vim.g.netrw_liststyle = 3
 vim.g.netrw_winsize = 30
+vim.g.netrw_keepdir = 0 -- keep current dir and browsing dir synced
 
 -- On toggle of netrw, don't open [no name] buffer
 vim.cmd([[

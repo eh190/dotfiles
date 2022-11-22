@@ -46,13 +46,13 @@ function resetttv() {
 }
 
 #connects to firestick and launches android
-#param is IP address of firestick e.g. runFire 111.111.1.11
+#param is IP address of firestick and device (android or amazon) e.g. runFire 111.111.1.11 android
 function runFire() {
   adb devices
   adb connect $1:5555
   cd ttv
   java11
-  make native.android
+  make native.$2
 }
 
 #gives some memory info on current connected device

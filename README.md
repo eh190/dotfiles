@@ -27,7 +27,7 @@ Youtube vid explaining stow use https://www.youtube.com/watch?v=90xMTKml9O0&t=37
 - You can ovveride the defaults by passing in your own configs (settings dir). See `mason.lua`, `settings` dir (in lsp) and `handlers.lua` for more information.
 
 - Null-Ls uses the native LSP to format and lint files. To add a formatter or linter it is best to go to the repo: https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins and see the builtin options for formatting and diagnostics (linting). You need to ensure that the specific option you require is stored as a binary on your system and in your $PATH. Once this is done you can add it in `null-ls.lua` as a source. Note that in this file there is also format on save function set up.
-- NOTE: if you add a null-ls formatter, it might start to conflict with the LSP formatter you have installed, and will ask you to choose an option everytime you save the file. To avoid this, you can add a conditional in `handlers.lua` to resolve formatting for the lsp (and use null-ls instead)
+- NOTE: if you add a null-ls formatter, it might start to conflict with the LSP formatter you have installed, and will ask you to choose an option everytime you save the file. To avoid this, ~~you can add a conditional in `handlers.lua` to resolve formatting for the lsp (and use null-ls instead)~~ DEPRECATED for v0.8. Instead, lsp_formatting func in `null-ls.lua` to determine whihc server to use for formatting (set to null-ls as default currently)
 
 ### Example of using Null-Ls - Go
 
@@ -37,7 +37,7 @@ Youtube vid explaining stow use https://www.youtube.com/watch?v=90xMTKml9O0&t=37
 
 ### NULL-LS VERSION
 
-- To add gofumpt to null-ls I needed to install the binary to my $PATH. So I used homebrew: `brew install gofumpt`. Then I added it to my `null-ls.lua` sources. Finally I added a line in `handlers.lua` to turn off gopls formatting and use null-ls instead.
+- To add gofumpt to null-ls I needed to install the binary to my $PATH. So I used homebrew: `brew install gofumpt`. Then I added it to my `null-ls.lua` sources. ~~Finally I added a line in `handlers.lua` to turn off gopls formatting and use null-ls instead.~~
 - Both methods use gofumpt to format files, but null-ls enables me to format on save without manually running the format lsp command.
 
 ### Session Management

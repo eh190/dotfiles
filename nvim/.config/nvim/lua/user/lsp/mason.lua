@@ -24,7 +24,17 @@ mason.setup({
 -- Add language servers here. Auto install on vim start if not already. Maps to 'mason' language servers (:Mason to see mason LS's)
 -- Once installed, call setup() on that LS (following pattern below). Can pass opts to LS if we want to override default config
 mason_lspconfig.setup({
-	ensure_installed = { "cssls", "eslint", "gopls", "html", "jsonls", "tsserver", "sumneko_lua", "rust_analyzer" },
+	ensure_installed = {
+		"cssls",
+		"eslint",
+		"gopls",
+		"html",
+		"jsonls",
+		"tsserver",
+		"sumneko_lua",
+		"rust_analyzer",
+		"emmet_ls",
+	},
 })
 
 local lsp_status_ok, lspconfig = pcall(require, "lspconfig")
@@ -45,9 +55,14 @@ lspconfig.eslint.setup({})
 lspconfig.cssls.setup({})
 lspconfig.html.setup({})
 lspconfig.rust_analyzer.setup({})
+lspconfig.emmet_ls.setup({})
 
 lspconfig.tsserver.setup({
 	on_attach = opts.on_attach,
+	-- run lsp for javascript in any directory
+	-- root_dir = function() 
+	-- 	return vim.loop.cwd() 
+	-- end,  
 })
 
 lspconfig.jsonls.setup({

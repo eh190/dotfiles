@@ -68,6 +68,7 @@ export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
 
 java11
 export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh

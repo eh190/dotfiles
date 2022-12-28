@@ -1,6 +1,6 @@
 ## Welcome to my Dotfiles!
 
-- Ensure Homebrew is installed, iterm2 is in use and you have brew installed things you might need (yarn, stow, neovim, git, fnm, etc.)
+- Ensure Homebrew is installed, iterm2 is in use and you have installed things you might need (yarn, stow, neovim, git, fnm, etc.)
 
 - Clone down this repo into the HOME directory
 - cd ~/dotfiles
@@ -17,7 +17,7 @@ Youtube vid explaining stow use https://www.youtube.com/watch?v=90xMTKml9O0&t=37
 
 ### LSP and Null-Ls
 
-- You will need to install the Language servers you want in order to use linting and formatting. `Mason` and `mason-lspconfig` handle this in tandem - `mason-lspconfig` translates the 'normal' LS's into mason's version. To add one, add it to the 'ensure_installed' list in lsp/mason.lua, and call setup function on it (file has examples). For more info see these docs:
+- You will need to install the Language servers you want in order to use linting and formatting. `Mason` and `mason-lspconfig` handle this in tandem - `mason-lspconfig` translates the 'normal' LS's into mason's version. To add one, add it to the 'ensure_installed' list in lsp/mason.lua, and call setup function on it (file has examples). This will auto install these servers on startup if they aren't already installed. For more info see these docs:
 
   - mason Docs https://github.com/williamboman/mason.nvim
   - mason-lspconfig docs https://github.com/williamboman/mason-lspconfig.nvim
@@ -27,9 +27,13 @@ Youtube vid explaining stow use https://www.youtube.com/watch?v=90xMTKml9O0&t=37
 - You can ovveride the defaults by passing in your own configs (settings dir). See `mason.lua`, `settings` dir (in lsp) and `handlers.lua` for more information.
 
 - Null-Ls uses the native LSP to format and lint files. To add a formatter or linter it is best to go to the repo: https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins and see the builtin options for formatting and diagnostics (linting). You need to ensure that the specific option you require is stored as a binary on your system and in your $PATH. Once this is done you can add it in `null-ls.lua` as a source. Note that in this file there is also format on save function set up.
-- NOTE: if you add a null-ls formatter, it might start to conflict with the LSP formatter you have installed, and will ask you to choose an option everytime you save the file. To avoid this, ~~you can add a conditional in `handlers.lua` to resolve formatting for the lsp (and use null-ls instead)~~ DEPRECATED for v0.8. Instead, lsp_formatting func in `null-ls.lua` to determine whihc server to use for formatting (set to null-ls as default currently)
+- NOTE: if you add a null-ls formatter, it might start to conflict with the LSP formatter you have installed, and will ask you to choose an option everytime you save the file. To avoid this, ~~you can add a conditional in `handlers.lua` to resolve formatting for the lsp (and use null-ls instead)~~ DEPRECATED for v0.8. Instead, use lsp_formatting func in `null-ls.lua` to determine which server to use for formatting (set to null-ls as default currently)
 
-### Example of using Null-Ls - Go
+### Example of using Null-Ls/LSP - Go
+
+Both methods use gofumpt to format files, but null-ls enables me to format on save without manually running the format lsp command.
+
+See this video https://www.youtube.com/watch?v=b7OguLuaYvE&t=481s about null-ls for more info.
 
 ### LSP VERSION
 
@@ -37,8 +41,17 @@ Youtube vid explaining stow use https://www.youtube.com/watch?v=90xMTKml9O0&t=37
 
 ### NULL-LS VERSION
 
-- To add gofumpt to null-ls I needed to install the binary to my $PATH. So I used homebrew: `brew install gofumpt`. Then I added it to my `null-ls.lua` sources. ~~Finally I added a line in `handlers.lua` to turn off gopls formatting and use null-ls instead.~~
-- Both methods use gofumpt to format files, but null-ls enables me to format on save without manually running the format lsp command.
+- To add gofumpt to null-ls I need to install gofumpt. `go install mvdan.cc/gofumpt@latest` has done this already, but I could always use homebrew - `brew install gofumpt`. Using Homebrew would mean the binary is added to my $PATH automatically (because it's placed in `/usr/local/bin`). However, it is recommended that you use your languages package manager for each binary e.g. cargo for lua, npm for prettier etc.
+- Then I added it to my `null-ls.lua` sources. ~~Finally I added a line in `handlers.lua` to turn off gopls formatting and use null-ls instead.~~
+- Finally, I need to make sure `gofumpt` is added as a binary on my system. Assuming gofumpt has installed in `~/go/bin` then `export PATH="$HOME/go/bin:$PATH"` in `.zshrc` will add it to the $PATH. To check, run `echo $PATH` or `echo $path` to see which binaries are included. See this blog for more information: https://medium.com/codex/adding-executable-program-commands-to-the-path-variable-5e45f1bdf6ce
+
+Currently, there are 3 formatters that need to be installed:
+
+- `cargo install stylua`
+- `go install mvdan.cc/gofumpt@latest`
+- `npm install prettier`
+
+You can see this list in `lua/user/lsp/null-ls.lua` under setup > sources.
 
 ### Session Management
 
@@ -49,8 +62,11 @@ Youtube vid explaining stow use https://www.youtube.com/watch?v=90xMTKml9O0&t=37
 - Plugins will install automatically once zsh opened.
 - It is a minimal config, with aliases, and some helper functions for installing plugins and sourcing files.
 - Important commands worth noting are:
-  - <tab> to autocomplete an option when typing
-  - <shift><tab> to view all possible options in current dir
+
+  - 'tab' to autocomplete an option when typing
+  - 'shift + tab' to view all possible options in current dir
+
+- If (when) you install Rust, it will place a `.zshenv` file with the cargo PATH inside the zsh dir of the dotfiles. This leads to some interesting behaviour where commands like `cargo` work but are also `not found`. To fix this, I've found just removing the `.zshenv` from dotfiles, and placing it in the HOME dir. Running `where cargo` for example, will now give you the correct path.
 
 ## VIM
 

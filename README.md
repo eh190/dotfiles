@@ -17,16 +17,20 @@ Youtube vid explaining stow use https://www.youtube.com/watch?v=90xMTKml9O0&t=37
 
 ### LSP and Null-Ls
 
-- You will need to install the Language servers you want in order to use linting and formatting. `Mason` and `mason-lspconfig` handle this in tandem - `mason-lspconfig` translates the 'normal' LS's into mason's version. To add one, add it to the 'ensure_installed' list in lsp/mason.lua, and call setup function on it (file has examples). This will auto install these servers on startup if they aren't already installed. For more info see these docs:
+- You will need to install the Language servers you want in order to use linting and formatting. `Mason` and `mason-lspconfig` handle this in tandem - `mason-lspconfig` translates the 'normal' LS's into mason's version. To add one, add it to the 'ensure_installed' list in `lsp/mason.lua`, and call setup function on it (file has examples). This will auto install these servers on startup if they aren't already installed. For more info see these docs:
+- To see installed LSPs and formatters/linters run `:Mason`.
 
   - mason Docs https://github.com/williamboman/mason.nvim
   - mason-lspconfig docs https://github.com/williamboman/mason-lspconfig.nvim
   - Migrating to mason from old nvim-lsp-installer https://github.com/williamboman/nvim-lsp-installer/discussions/876
 
+- You might also want to install the relevant TREESITTER lsp for syntax highlighting for the new Language installed (`treesitter.lua` ensure_installed object [Treesitter Supported Languages] (https://github.com/nvim-treesitter/nvim-treesitter#supported-languages))
 - Once installed you can format a file using the command `lua vim.lsp.buf.format({ bufnr = bufnr })` (neovim v0.8)/ `lua vim.lsp.buf.formatting_sync()` (neovim < v0.8) using the relative language server for that file.
 - You can ovveride the defaults by passing in your own configs (settings dir). See `mason.lua`, `settings` dir (in lsp) and `handlers.lua` for more information.
 
-- Null-Ls uses the native LSP to format and lint files. To add a formatter or linter it is best to go to the repo: https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins and see the builtin options for formatting and diagnostics (linting). You need to ensure that the specific option you require is stored as a binary on your system and in your $PATH. Once this is done you can add it in `null-ls.lua` as a source. Note that in this file there is also format on save function set up.
+- Null-Ls uses the native LSP to format and lint files. To add a formatter or linter it is best to go to the repo: https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins and see the builtin options for formatting and diagnostics (linting).
+- Previously, you had to ensure that the specific option you require is stored as a binary on your system and in your $PATH (see below example of gofumpt). Now, `mason-null-ls` handles this for us - in the `mason.lua` file we set up LSP with `mason-lsp`, but also add the formatters/linters we want with `mason-null-ls`. [mason-nulls-ls Docs](https://github.com/jay-babu/mason-null-ls.nvim).
+- Once this is done you can add it in `null-ls.lua` as a source. Note that in this file there is also format on save function set up.
 - NOTE: if you add a null-ls formatter, it might start to conflict with the LSP formatter you have installed, and will ask you to choose an option everytime you save the file. To avoid this, ~~you can add a conditional in `handlers.lua` to resolve formatting for the lsp (and use null-ls instead)~~ DEPRECATED for v0.8. Instead, use lsp_formatting func in `null-ls.lua` to determine which server to use for formatting (set to null-ls as default currently)
 
 ### Example of using Null-Ls/LSP - Go
@@ -34,6 +38,8 @@ Youtube vid explaining stow use https://www.youtube.com/watch?v=90xMTKml9O0&t=37
 Both methods use gofumpt to format files, but null-ls enables me to format on save without manually running the format lsp command.
 
 See this video https://www.youtube.com/watch?v=b7OguLuaYvE&t=481s about null-ls for more info.
+
+## !!!OLD WAY OF USING NULL LS FORMATTERS!!!
 
 ### LSP VERSION
 
@@ -52,6 +58,12 @@ Currently, there are 3 formatters that need to be installed:
 - `npm install prettier`
 
 You can see this list in `lua/user/lsp/null-ls.lua` under setup > sources.
+
+### Treesitter
+
+- Handles syntax highlighting.
+- For a new LSP, add the same to the `treesitter.lua` sources for syntax highlighting.
+- If after updating plugins, treesitter gives the error "treesitter/highlighter Error executing lua..." run `:TSUpdate` to update the installed sources.
 
 ### Session Management
 

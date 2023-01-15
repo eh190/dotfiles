@@ -71,6 +71,7 @@ return packer.startup(function(use)
 	use("williamboman/mason.nvim") -- simple to use language server installer
 	use("williamboman/mason-lspconfig.nvim")
 	use("jose-elias-alvarez/null-ls.nvim") -- Formatting and linting
+	use("jayp0521/mason-null-ls.nvim") -- links null-ls formatting/linting to mason LSP
 
 	-- Telescope
 	use({

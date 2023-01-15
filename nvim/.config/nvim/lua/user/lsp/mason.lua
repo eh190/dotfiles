@@ -11,6 +11,11 @@ if not mason_lsp_status_ok then
 	return
 end
 
+local mason_null_ls_status_ok, mason_null_ls = pcall(require, "mason-null-ls")
+if not mason_null_ls_status_ok then
+	return
+end
+
 mason.setup({
 	ui = {
 		icons = {
@@ -26,7 +31,6 @@ mason.setup({
 mason_lspconfig.setup({
 	ensure_installed = {
 		"cssls",
-		"eslint",
 		"gopls",
 		"html",
 		"jsonls",
@@ -34,6 +38,16 @@ mason_lspconfig.setup({
 		"sumneko_lua",
 		"rust_analyzer",
 		"emmet_ls",
+		"dockerls",
+	},
+})
+
+mason_null_ls.setup({
+	ensure_installed = {
+		"prettier",
+		"stylua",
+		"eslint_d",
+		"gofumpt",
 	},
 })
 
@@ -51,18 +65,18 @@ local gopls_setup = require("user.lsp.settings.gopls")
 local sumneko_lua_setup = require("user.lsp.settings.sumneko_lua")
 local jsonl_setup = require("user.lsp.settings.jsonls")
 
-lspconfig.eslint.setup({})
 lspconfig.cssls.setup({})
 lspconfig.html.setup({})
 lspconfig.rust_analyzer.setup({})
 lspconfig.emmet_ls.setup({})
+lspconfig.dockerls.setup({})
 
 lspconfig.tsserver.setup({
 	on_attach = opts.on_attach,
 	-- run lsp for javascript in any directory
-	-- root_dir = function() 
-	-- 	return vim.loop.cwd() 
-	-- end,  
+	-- root_dir = function()
+	-- 	return vim.loop.cwd()
+	-- end,
 })
 
 lspconfig.jsonls.setup({

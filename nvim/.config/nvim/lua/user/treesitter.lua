@@ -18,6 +18,7 @@ configs.setup({
 		"sql",
 		"solidity",
 		"tsx",
+		"dockerfile",
 	},
 	sync_install = false,
 	ignore_install = { "" }, -- List of parsers to ignore installing

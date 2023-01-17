@@ -1,5 +1,8 @@
 #!/bin/sh
 
+#source woefe/git-prompt. Gives us a fully fleshed out git prompt
+source $ZDOTDIR/plugins/git-prompt.zsh/git-prompt.zsh 
+
 ## autoload vcs and colors
 autoload -Uz vcs_info
 autoload -U colors && colors
@@ -27,15 +30,42 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
     fi
 }
 
+#vcs_info for git prompt
 zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr '!'
+zstyle ':vcs_info:*' stagedstr '+'
+zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
 # zstyle ':vcs_info:git:*' formats " %r/%S %b %m%u%c "
-zstyle ':vcs_info:git:*' formats " %{$fg[blue]%}(%{$fg[red]%}%m%u%c%{$fg[yellow]%}%{$fg[magenta]%} %b%{$fg[blue]%})"
+zstyle ':vcs_info:git:*' formats " %{$fg[blue]%}(%{$fg[yellow]%}%{$fg[magenta]%} %b%{$fg[blue]%})%F{yellow}%m%f %F{red}%u%f %F{green}%c%f"
+
+# woefe/git-prompt customisation. See https://github.com/woefe/git-prompt.zsh for docs
+ZSH_THEME_GIT_PROMPT_PREFIX="[%F{green}%f "
+ZSH_THEME_GIT_PROMPT_SUFFIX="%B] "
+ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[green]%}"
+ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
+ZSH_THEME_GIT_PROMPT_STAGED="%B%{$fg[yellow]%}✚"
+ZSH_THEME_GIT_PROMPT_UNSTAGED="%B%{$fg[yellow]%}!"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%B%{$fg[blue]%}?"
+ZSH_THEME_GIT_PROMPT_STASHED="%{$fg[blue]%}⚑"
+ZSH_THEME_GIT_PROMPT_BEHIND=" ↓"
+ZSH_THEME_GIT_PROMPT_AHEAD=" ↑"
+
 
 # format our main prompt for hostname current folder, and permissions.
+# These are alternative prompts and combinations
 # PROMPT="%B%{$fg[blue]%}[%{$fg[white]%}%n%{$fg[red]%}@%{$fg[white]%}%m%{$fg[blue]%}] %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )%{$fg[cyan]%}%c%{$reset_color%}"
-PROMPT="%B%{$fg[blue]%}[%{$fg[white]%}ed%{$fg[red]%}-%{$fg[white]%}hughes%{$fg[blue]%}] %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )%{$fg[cyan]%}%c%{$reset_color%}"
+#PROMPT="%B%{$fg[blue]%}[%{$fg[white]%}ed%{$fg[red]%}-%{$fg[white]%}hughes%{$fg[blue]%}] %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )%{$fg[cyan]%}%c%{$reset_color%}"
 # PROMPT="%{$fg[green]%}%n@%m %~ %{$reset_color%}%#> "
-PROMPT+="\$vcs_info_msg_0_ "
+
+# Prompt using vcs_info
+# PROMPT='%B%{$fg[blue]%}[%{$fg[white]%}%n%{$fg[blue]%}] %F{blue}%~%f '
+# PROMPT+="\$vcs_info_msg_0_ "
+
+# Prompt using woefe/git-prompt.zsh
+PROMPT='%B%{$fg[blue]%}[%{$fg[white]%}%n%{$fg[blue]%}] %F{blue}%~%f $(gitprompt)%(?:%{$fg_bold[green]%}❯ :%{$fg_bold[red]%}❯ )'
+
+# Right prompt
+RPROMPT="%{$fg[white]%}%*"
 # TODO look into this for more colors
 # https://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/
 # also ascii escape codes

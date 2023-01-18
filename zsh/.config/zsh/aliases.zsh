@@ -10,6 +10,8 @@ training=$HOME/Developer/training
 hwaclient=$HOME/Developer/mercuryDNIDiscovery/cd-tv-client-discoveryplus
 #cd tennis tv
 ttv=$HOME/Developer/cdtv
+#cd jiji
+jiji=$HOME/Developer/jiji
 
 #links core repo to client repo
 function linkcore() {

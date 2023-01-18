@@ -39,18 +39,18 @@ zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
 zstyle ':vcs_info:git:*' formats " %{$fg[blue]%}(%{$fg[yellow]%}%{$fg[magenta]%} %b%{$fg[blue]%})%F{yellow}%m%f %F{red}%u%f %F{green}%c%f"
 
 # woefe/git-prompt customisation. See https://github.com/woefe/git-prompt.zsh for docs
-ZSH_THEME_GIT_PROMPT_PREFIX="[%F{green}%f "
-ZSH_THEME_GIT_PROMPT_SUFFIX="%B] "
+ZSH_THEME_GIT_PROMPT_PREFIX="%F{green}%f "
+ZSH_THEME_GIT_PROMPT_SUFFIX=" "
 ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[green]%}"
-ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
-ZSH_THEME_GIT_PROMPT_STAGED="%B%{$fg[yellow]%}✚"
-ZSH_THEME_GIT_PROMPT_UNSTAGED="%B%{$fg[yellow]%}!"
-ZSH_THEME_GIT_PROMPT_UNTRACKED="%B%{$fg[blue]%}?"
+ZSH_THEME_GIT_PROMPT_SEPARATOR=""
+ZSH_THEME_GIT_PROMPT_STAGED=" %B%{$fg[yellow]%}✚"
+ZSH_THEME_GIT_PROMPT_UNSTAGED=" %B%{$fg[yellow]%}!"
+ZSH_THEME_GIT_PROMPT_UNTRACKED=" %B%{$fg[blue]%}?"
 ZSH_GIT_PROMPT_SHOW_STASH=1
-ZSH_THEME_GIT_PROMPT_STASHED="%{$fg[blue]%}⚑"
+ZSH_THEME_GIT_PROMPT_STASHED=" %{$fg[blue]%}⚑"
 ZSH_THEME_GIT_PROMPT_BEHIND=" ↓"
 ZSH_THEME_GIT_PROMPT_AHEAD=" ↑"
-
+ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg_bold[green]%}✔"
 
 # format our main prompt for hostname current folder, and permissions.
 # These are alternative prompts and combinations

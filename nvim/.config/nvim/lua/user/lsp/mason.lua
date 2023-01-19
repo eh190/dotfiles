@@ -48,6 +48,7 @@ mason_null_ls.setup({
 		"stylua",
 		"eslint_d",
 		"gofumpt",
+		"rustfmt",
 	},
 })
 

@@ -66,11 +66,11 @@ local gopls_setup = require("user.lsp.settings.gopls")
 local sumneko_lua_setup = require("user.lsp.settings.sumneko_lua")
 local jsonl_setup = require("user.lsp.settings.jsonls")
 
-lspconfig.cssls.setup({})
-lspconfig.html.setup({})
-lspconfig.rust_analyzer.setup({})
-lspconfig.emmet_ls.setup({})
-lspconfig.dockerls.setup({})
+lspconfig.cssls.setup({ on_attach = opts.on_attach })
+lspconfig.html.setup({ on_attach = opts.on_attach })
+lspconfig.emmet_ls.setup({ on_attach = opts.on_attach })
+lspconfig.dockerls.setup({ on_attach = opts.on_attach })
+lspconfig.rust_analyzer.setup({ on_attach = opts.on_attach })
 
 lspconfig.tsserver.setup({
 	on_attach = opts.on_attach,

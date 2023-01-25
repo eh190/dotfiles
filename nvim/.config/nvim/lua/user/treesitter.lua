@@ -7,6 +7,7 @@ end
 configs.setup({
 	ensure_installed = {
 		"rust",
+		"toml",
 		"go",
 		"css",
 		"html",

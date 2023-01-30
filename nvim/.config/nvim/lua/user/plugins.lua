@@ -49,9 +49,10 @@ return packer.startup(function(use)
 	-- Colorschemes
 	-- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
 	use({ "ellisonleao/gruvbox.nvim" })
-	use("shaunsingh/nord.nvim")
 	use("folke/tokyonight.nvim")
 	use("lunarvim/darkplus.nvim")
+	use("NTBBloodbath/doom-one.nvim")
+	use({ "srcery-colors/srcery-vim", as = "srcery" })
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin

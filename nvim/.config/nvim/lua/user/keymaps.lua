@@ -33,6 +33,16 @@ keymap("n", "<leader>l", ":vertical resize +2<CR>", opts)
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<C-q>", ":bdelete<CR>", opts)
+keymap("n", "<leader>vs", ":vertical sbuffer<CR>", opts) -- open a vertical split of current buffer
+
+-- Telescope
+keymap("n", "<leader>pf", "<cmd>Telescope find_files<cr>", opts)
+-- keymap("n", "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
+keymap("n", "<leader>tg", "<cmd>Telescope live_grep<cr>", opts)
+
+-- Format and save
+-- see handlers.lua for definition of :Format cmd
+keymap("n", "<leader>fs", ":Format<cr><cmd>w<cr>", opts)
 
 -- Session Management
 keymap("n", "<leader>ll", ":SessionManager load_last_session<CR>", opts)
@@ -66,12 +76,3 @@ keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
-
--- Telescope
-keymap("n", "<leader>pf", "<cmd>Telescope find_files<cr>", opts)
--- keymap("n", "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
-keymap("n", "<leader>tg", "<cmd>Telescope live_grep<cr>", opts)
-
--- Format and save
--- see handlers.lua for definition of :Format cmd
-keymap("n", "<leader>fs", ":Format<cr><cmd>w<cr>", opts)

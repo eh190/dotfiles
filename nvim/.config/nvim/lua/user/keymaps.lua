@@ -34,6 +34,7 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<C-q>", ":bdelete<CR>", opts)
 keymap("n", "<leader>vs", ":vertical sbuffer<CR>", opts) -- open a vertical split of current buffer
+keymap("n", "<leader>hs", ":sbuffer<CR>", opts) -- open a horizontal split of current buffer
 
 -- Telescope
 keymap("n", "<leader>pf", "<cmd>Telescope find_files<cr>", opts)

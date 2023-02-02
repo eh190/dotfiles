@@ -115,6 +115,9 @@ return packer.startup(function(use)
 	-- Gitsigns
 	use("lewis6991/gitsigns.nvim")
 
+	-- Git (fugitive)
+	use("tpope/vim-fugitive")
+
 	-- Save Sessions
 	use("Shatur/neovim-session-manager")
 

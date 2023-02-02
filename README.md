@@ -1,5 +1,7 @@
 ## Welcome to my Dotfiles!
 
+Test line
+
 - Ensure Homebrew is installed, iterm2 is in use and you have installed things you might need (yarn, stow, neovim, git, fnm, etc.)
 
 - Clone down this repo into the HOME directory

@@ -69,6 +69,22 @@ You can see this list in `lua/user/lsp/null-ls.lua` under setup > sources.
 
 - Using the `nvim-sessions-mananger` plugin, it uses :mksession to save current sessions automatically on quit. To load last session use the keymap `<leader>ll`. To load another session use `:SessionManager load_session` and choose which one to load. See the docs for more info https://github.com/Shatur/neovim-session-manager
 
+### Git
+
+- Although Gitsigns has some functionality for Git, I only really use the git blame line feature. The BEST one shop stop for Git is [Vim Fugitive] (https://github.com/tpope/vim-fugitive).
+- Some useful quick commands:
+  - `:G` or `:Git` brings up the buffer of files
+  - `dv` will do a vertical diff split (`:Gvdiffsplit`) of the file
+  - `dq` will close this diff split
+  - `s` stages a file
+  - `u` unstages a file
+  - `=` expands the file the cursor is on, showing the hunks. In visual mode, you can select the hunks and then use `s` to stage that hunk
+  - `:G blame` opens a buffer of each lines changes and commits. Select a commit to see the diff in one file
+  - To fix merge conflicts:
+    - run `Gvdiffsplit` to open three buffers: left is the 'target', middle is working copy, and the third is the 'feature' version.
+    - Whilst focused on the middle, you can use `d2o` (left) or `d3o` (right) to obtain the hunk from the "ours" or "theirs" ancestor, respectively.
+    - Save and close the split. You can now commit or continue the rebase.
+
 ## ZSH
 
 - Plugins will install automatically once zsh opened.

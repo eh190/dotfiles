@@ -20,8 +20,10 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
-keymap("n", "<leader>e", ":Lex 30<CR>", opts) -- toggle netrw
-keymap("n", "<leader>pv", ":Lex 30 %:p:h<CR>", opts) -- open netrw on current dir
+-- Netrw
+keymap("n", "<leader>e", ":Lex 30<CR>", opts) -- toggle netrw to pwd
+keymap("n", "<leader>pv", ":Lex 30 %:p:h<CR>", opts) -- open netrw on current dir of open file. NOTE: pwd will not change
+keymap("n", "<leader>%", ":e %:h/", opts) -- start creating a new file in same dir as open file. Just need to type new files name and return
 
 -- Resize with arrows
 keymap("n", "<leader>u", ":resize +2<CR>", opts)

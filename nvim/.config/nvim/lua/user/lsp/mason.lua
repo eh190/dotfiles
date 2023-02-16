@@ -35,7 +35,7 @@ mason_lspconfig.setup({
 		"html",
 		"jsonls",
 		"tsserver",
-		"sumneko_lua",
+		"lua_ls",
 		"rust_analyzer",
 		"emmet_ls",
 		"dockerls",
@@ -63,7 +63,7 @@ local opts = {
 }
 
 local gopls_setup = require("user.lsp.settings.gopls")
-local sumneko_lua_setup = require("user.lsp.settings.sumneko_lua")
+local lua_ls_setup = require("user.lsp.settings.lua_ls")
 local jsonl_setup = require("user.lsp.settings.jsonls")
 
 lspconfig.cssls.setup({ on_attach = opts.on_attach })
@@ -97,7 +97,7 @@ lspconfig.gopls.setup({
 	settings = gopls_setup.settings,
 })
 
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
 	on_attach = opts.on_attach,
-	settings = sumneko_lua_setup.settings,
+	settings = lua_ls_setup.settings,
 })

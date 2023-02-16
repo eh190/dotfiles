@@ -66,14 +66,15 @@ local gopls_setup = require("user.lsp.settings.gopls")
 local lua_ls_setup = require("user.lsp.settings.lua_ls")
 local jsonl_setup = require("user.lsp.settings.jsonls")
 
-lspconfig.cssls.setup({ on_attach = opts.on_attach })
-lspconfig.html.setup({ on_attach = opts.on_attach })
-lspconfig.emmet_ls.setup({ on_attach = opts.on_attach })
-lspconfig.dockerls.setup({ on_attach = opts.on_attach })
-lspconfig.rust_analyzer.setup({ on_attach = opts.on_attach })
+lspconfig.cssls.setup({ on_attach = opts.on_attach, capabilities = opts.capabilities })
+lspconfig.html.setup({ on_attach = opts.on_attach, capabilities = opts.capabilities })
+lspconfig.emmet_ls.setup({ on_attach = opts.on_attach, capabilities = opts.capabilities })
+lspconfig.dockerls.setup({ on_attach = opts.on_attach, capabilities = opts.capabilities })
+lspconfig.rust_analyzer.setup({ on_attach = opts.on_attach, capabilities = opts.capabilities })
 
 lspconfig.tsserver.setup({
 	on_attach = opts.on_attach,
+	capabilities = opts.capabilities,
 	-- run lsp for javascript in any directory
 	-- root_dir = function()
 	-- 	return vim.loop.cwd()
@@ -82,6 +83,7 @@ lspconfig.tsserver.setup({
 
 lspconfig.jsonls.setup({
 	on_attach = opts.on_attach,
+	capabilities = opts.capabilities,
 	settings = jsonl_setup.settings,
 	commands = {
 		Format = {
@@ -94,10 +96,12 @@ lspconfig.jsonls.setup({
 
 lspconfig.gopls.setup({
 	on_attach = opts.on_attach,
+	capabilities = opts.capabilities,
 	settings = gopls_setup.settings,
 })
 
 lspconfig.lua_ls.setup({
 	on_attach = opts.on_attach,
+	capabilities = opts.capabilities,
 	settings = lua_ls_setup.settings,
 })

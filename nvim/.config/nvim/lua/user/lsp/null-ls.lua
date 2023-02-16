@@ -25,6 +25,7 @@ null_ls.setup({
 	debug = false,
 	sources = {
 		formatting.prettier, -- ts, js, json, markdown
+		-- formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", { "--tab-width", 4 } } }),
 		formatting.stylua, -- lua
 		formatting.gofumpt, -- go
 		formatting.rustfmt, -- rust

@@ -29,7 +29,7 @@ null_ls.setup({
 		formatting.stylua, -- lua
 		formatting.gofumpt, -- go
 		formatting.rustfmt, -- rust
-		diagnostics.eslint_d, -- eslint diagnostics
+		-- diagnostics.eslint_d, -- eslint diagnostics
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then

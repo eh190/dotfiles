@@ -46,7 +46,7 @@ mason_null_ls.setup({
 	ensure_installed = {
 		"prettier",
 		"stylua",
-		"eslint_d",
+		-- "eslint_d",
 		"gofumpt",
 		"rustfmt",
 	},

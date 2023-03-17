@@ -42,6 +42,7 @@ mason_lspconfig.setup({
 	},
 })
 
+-- Passes formatters installed by Mason to null-ls for format on save
 mason_null_ls.setup({
 	ensure_installed = {
 		"prettier",

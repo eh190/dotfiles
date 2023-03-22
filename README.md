@@ -39,7 +39,7 @@ Both methods use gofumpt to format files, but null-ls enables me to format on sa
 
 See this video https://www.youtube.com/watch?v=b7OguLuaYvE&t=481s about null-ls for more info.
 
-## !!!OLD WAY OF USING NULL LS FORMATTERS!!!
+## !!!OLD WAY OF USING NULL LS FORMATTERS!!! START
 
 ### LSP VERSION
 
@@ -59,6 +59,8 @@ Currently, there are 3 formatters that need to be installed:
 
 You can see this list in `lua/user/lsp/null-ls.lua` under setup > sources.
 
+## !!!OLD WAY OF USING NULL LS FORMATTERS!!! END
+
 ### Treesitter
 
 - Handles syntax highlighting.
@@ -71,14 +73,16 @@ You can see this list in `lua/user/lsp/null-ls.lua` under setup > sources.
 
 ### Git
 
-- Although Gitsigns has some functionality for Git, I only really use the git blame line feature. The BEST one shop stop for Git is [Vim Fugitive] (https://github.com/tpope/vim-fugitive).
+- Although Gitsigns has some functionality for Git, I only really use the git blame line feature. The BEST one shop stop for Git is [Vim Fugitive](https://github.com/tpope/vim-fugitive).
 - Some useful quick commands:
   - `:G` or `:Git` brings up the buffer of files
   - `dv` will do a vertical diff split (`:Gvdiffsplit`) of the file
   - `dq` will close this diff split
-  - `s` stages a file
+  - `s` or `a` stages a file
   - `u` unstages a file
+  - `X` resets the files changes
   - `=` expands the file the cursor is on, showing the hunks. In visual mode, you can select the hunks and then use `s` to stage that hunk
+  - `cc` enters commit mode
   - `:G blame` opens a buffer of each lines changes and commits. Select a commit to see the diff in one file
   - To fix merge conflicts:
     - run `Gvdiffsplit` to open three buffers: left is the 'target', middle is working copy, and the third is the 'feature' version.

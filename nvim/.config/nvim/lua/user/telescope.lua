@@ -1,28 +1,37 @@
 local status_ok, telescope = pcall(require, "telescope")
 if not status_ok then
-  return
+	return
 end
 
-telescope.load_extension('media_files')
+telescope.load_extension("media_files")
 
-local actions = require "telescope.actions"
+local actions = require("telescope.actions")
 
-telescope.setup {
-  defaults = {
+telescope.setup({
+	defaults = {
+		layout_strategy = "flex",
+		layout_config = {
+			vertical = {
+				preview_cutoff = 1,
+				preview_height = 0.6,
+			},
+			horizontal = {
+				preview_width = 0.7,
+			},
+		},
+		prompt_prefix = " ",
+		selection_caret = " ",
+		path_display = { "smart" },
 
-    prompt_prefix = " ",
-    selection_caret = " ",
-    path_display = { "smart" },
+		mappings = {
+			i = {
+				["<C-n>"] = actions.cycle_history_next,
+				["<C-p>"] = actions.cycle_history_prev,
 
-    mappings = {
-      i = {
-        ["<C-n>"] = actions.cycle_history_next,
-        ["<C-p>"] = actions.cycle_history_prev,
+				["<C-j>"] = actions.move_selection_next,
+				["<C-k>"] = actions.move_selection_previous,
 
-        ["<C-j>"] = actions.move_selection_next,
-        ["<C-k>"] = actions.move_selection_previous,
-
-        --[===[
+				--[===[
         ["<C-c>"] = actions.close,
 
         ["<Down>"] = actions.move_selection_next,
@@ -46,10 +55,10 @@ telescope.setup {
         ["<C-l>"] = actions.complete_tag,
         ["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
         --]===]
-      },
+			},
 
-      n = {
-        --[===[
+			n = {
+				--[===[
         ["<esc>"] = actions.close,
         ["<CR>"] = actions.select_default,
         ["<C-x>"] = actions.select_horizontal,
@@ -80,29 +89,29 @@ telescope.setup {
 
         ["?"] = actions.which_key,
         --]===]
-      },
-    },
-  },
-  pickers = {
-    -- Default configuration for builtin pickers goes here:
-    -- picker_name = {
-    --   picker_config_key = value,
-    --   ...
-    -- }
-    -- Now the picker_config_key will be applied every time you call this
-    -- builtin picker
-  },
-  extensions = {
-    media_files = {
-        -- filetypes whitelist
-        -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-        filetypes = {"png", "webp", "jpg", "jpeg"},
-        find_cmd = "rg" -- find command (defaults to `fd`)
-      }
-    -- Your extension configuration goes here:
-    -- extension_name = {
-    --   extension_config_key = value,
-    -- }
-    -- please take a look at the readme of the extension you want to configure
-  },
-}
+			},
+		},
+	},
+	pickers = {
+		-- Default configuration for builtin pickers goes here:
+		-- picker_name = {
+		--   picker_config_key = value,
+		--   ...
+		-- }
+		-- Now the picker_config_key will be applied every time you call this
+		-- builtin picker
+	},
+	extensions = {
+		media_files = {
+			-- filetypes whitelist
+			-- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+			filetypes = { "png", "webp", "jpg", "jpeg" },
+			find_cmd = "rg", -- find command (defaults to `fd`)
+		},
+		-- Your extension configuration goes here:
+		-- extension_name = {
+		--   extension_config_key = value,
+		-- }
+		-- please take a look at the readme of the extension you want to configure
+	},
+})

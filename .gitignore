@@ -4,4 +4,5 @@
 /zsh/.config/zsh/.zsh_history
 /zsh/.config/zsh/plugins
 /zsh/.config/zsh/work_aliases.zsh
+/zsh/.config/zsh/.p10k.zsh
 .DS_Store

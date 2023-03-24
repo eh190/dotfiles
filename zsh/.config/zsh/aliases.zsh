@@ -5,7 +5,7 @@ setopt cdablevars
 [[ -f $ZDOTDIR/work_aliases.zsh ]] && . $ZDOTDIR/work_aliases.zsh 
 
 #launch chrome session with CORS enabled
-alias runChromeCors='open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security'
+alias corsChrome='open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security'
 
 #switch between java versions
 alias java8='export JAVA_HOME=$JAVA_8_HOME'

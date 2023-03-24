@@ -39,7 +39,7 @@ keymap("n", "<leader>vs", ":vertical sbuffer<CR>", opts) -- open a vertical spli
 keymap("n", "<leader>hs", ":sbuffer<CR>", opts) -- open a horizontal split of current buffer
 
 -- Telescope
-keymap("n", "<leader>pf", "<cmd>Telescope find_files<cr>", opts)
+keymap("n", "<leader>pf", "<cmd>Telescope find_files hidden=true<cr>", opts)
 -- keymap("n", "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
 keymap("n", "<leader>tg", "<cmd>Telescope live_grep<cr>", opts)
 

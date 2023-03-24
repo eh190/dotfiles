@@ -9,7 +9,7 @@ local actions = require("telescope.actions")
 
 telescope.setup({
 	defaults = {
-		layout_strategy = "flex",
+		layout_strategy = "vertical",
 		layout_config = {
 			vertical = {
 				preview_cutoff = 1,

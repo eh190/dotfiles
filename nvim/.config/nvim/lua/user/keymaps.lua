@@ -42,6 +42,8 @@ keymap("n", "<leader>hs", ":sbuffer<CR>", opts) -- open a horizontal split of cu
 keymap("n", "<leader>pf", "<cmd>Telescope find_files hidden=true<cr>", opts)
 -- keymap("n", "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
 keymap("n", "<leader>tg", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<leader>gs", "<cmd>Telescope git_status<cr>", opts)
+keymap("n", "<leader>gf", "<cmd>Telescope git_files<cr>", opts)
 
 -- Format and save
 -- see handlers.lua for definition of :Format cmd

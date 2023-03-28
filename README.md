@@ -1,6 +1,18 @@
 ## Welcome to my Dotfiles!
 
-- Ensure Homebrew is installed, iterm2 is in use and you have installed things you might need (yarn, stow, neovim, git, fnm, etc.)
+The homebrew installs are obviously done for mac, but all other settings should be platform agnostic.
+
+### Required installs:
+
+My preference is to use iterm2 (but not essential)
+
+- Homebrew
+- yarn
+- stow
+- neovim
+- git
+- fnm
+- ripgrep (required for telescope grep)
 
 - Clone down this repo into the HOME directory
 - cd ~/dotfiles

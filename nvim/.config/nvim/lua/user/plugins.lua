@@ -53,6 +53,7 @@ return packer.startup(function(use)
 	use("lunarvim/darkplus.nvim")
 	use("NTBBloodbath/doom-one.nvim")
 	use({ "srcery-colors/srcery-vim", as = "srcery" })
+	use("rebelot/kanagawa.nvim")
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin

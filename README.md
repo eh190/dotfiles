@@ -94,6 +94,7 @@ You can see this list in `lua/user/lsp/null-ls.lua` under setup > sources.
   - `u` unstages a file
   - `X` resets the files changes
   - `=` expands the file the cursor is on, showing the hunks. In visual mode, you can select the hunks and then use `s` to stage that hunk
+  - Whilst in either expanded mode or in vdiffsplit, pressing `[c` and `]c` moves between hunks
   - `cc` enters commit mode
   - `:G blame` opens a buffer of each lines changes and commits. Select a commit to see the diff in one file
   - To fix merge conflicts:

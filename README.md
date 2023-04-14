@@ -119,6 +119,74 @@ You can see this list in `lua/user/lsp/null-ls.lua` under setup > sources.
 - Whilst nvim lives in .config, vim lives in the HOME dir for now.
 - It is very simple and for emergencies more than anything
 
+### Some VIM Commands
+
+Vim commands
+
+i = insert left of cursor
+a = insert right of cursor
+I = insert first non whitespace char left
+A = insert end of line regardless of whitespace chars
+
+o = insert new line below and insert
+O = insert new line above and insert
+
+yy = yank (copy) line
+dd = delte line
+x = delete char
+p = paste below (if whole line), or paste in line if not
+P = paste above
+
+yap = yank set of contiguous code
+
+w,b = word jump navigation
+u = undo
+
+:Ex = back to file tree
+:Vex = vertical split explore
+:Sex = horizontal split explore
+
+Ctrl + w = windows mode. This + l = go to the window on the right (assuming two vertical windows e.g.)
+
+Ctrl + w + o = close all windows except current window (buffer)
+
+\_ = go to first non space character of line
+0 = go to beginning of line
+$ = end of line
+D or d$ = deletes from cursor to end of line
+C = deletes to end of line and inserts
+cc = deletes and goes into insert
+S = delete whole line, go into insert mode
+s = delete character and into insert mode
+f + capital letter = jump to first instance of that capital letter. ‘,’ goes to next instance of letter
+F = f but in reverse. ‘;’ goes to next in this version
+
+{ = jump to paragraph above (non contiguous code)
+} = jump to paragraph below (non contiguous code)
+Ctrl + d = jump half a page
+Ctrl + u = jump up half a page
+% = jump between bracket pairs
+
+ci{ = delete contents of brackets and insert mode
+
+:bn = buffer next
+:bp = buffer previous
+:b <name of file> = select specific buffer
+
+Ctrl x + ctrl o = autocomplete in insert mode
+
+/searchterm = search in current file. n to go to next, N to go back one instance.
+:noh removes search highlight
+:%s/term/newTerm = search and replace on entire file
+Visual mode highlight a region, then “:” to begin a visual range search and replace. From here we can type:
+
+    - “s/term/newTerm” (will replace first instance on each line),
+    - or “s/term/newTerm/g” to replace all instance in the range,
+    - or “s/term/newTerm/gc to decide for each instance whether to replace.
+
+d = create new directory (if in file tree)
+% = create new file (if in file tree)
+
 ## Z and Zprofile
 
 - Defines some root paths

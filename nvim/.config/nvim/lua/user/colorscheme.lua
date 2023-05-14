@@ -1,7 +1,5 @@
 vim.o.background = "dark" -- or "light" for light mode
 
--- vim.cmd([[colorscheme srcery]])
-
 -- Colorschemes that support the :lua vim.lsp.buf.document_highlight() (handlers.lua)
 -- vim.cmd("colorscheme darkplus")
 

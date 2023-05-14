@@ -87,10 +87,6 @@ return packer.startup(function(use)
 			require("nvim-treesitter.install").update({ with_sync = true })
 		end,
 	})
-	use("p00f/nvim-ts-rainbow")
-
-	-- Vim Illuminate: highlight other matching words under cursor
-	-- use("RRethy/vim-illuminate")
 
 	-- Auto Pairs -- integrates with both cmp and treesitter
 	use({

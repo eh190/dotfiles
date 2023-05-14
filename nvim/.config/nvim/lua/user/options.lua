@@ -25,10 +25,10 @@ vim.opt.updatetime = 300 -- faster completion (4000ms default)
 vim.opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 vim.opt.expandtab = true -- convert tabs to spaces
 vim.opt.shiftwidth = 4 -- the number of spaces inserted for each indentation
-vim.opt.tabstop = 4 -- insert 2 spaces for a tab
+vim.opt.tabstop = 4 -- insert 4 spaces for a tab
 vim.opt.cursorline = false -- highlight the current line
 vim.opt.number = true -- set numbered lines
-vim.opt.relativenumber = true -- set relative numbered lines
+vim.opt.relativenumber = false -- set relative numbered lines
 vim.opt.numberwidth = 4 -- set number column width to 2 {default 4}
 vim.opt.signcolumn = "yes" -- always show the sign column, otherwise it would shift the text each time
 vim.opt.wrap = true -- don't display lines as one long line
@@ -37,8 +37,7 @@ vim.opt.sidescrolloff = 8
 vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
 vim.opt.guicursor = "" -- set fat cursor in insert mode nvimh
 vim.g.netrw_liststyle = 3
-vim.g.netrw_winsize = 30
--- vim.g.netrw_keepdir = 0 -- keep current dir and browsing dir synced. Disabled for now as it seems to break my netrw keymaps
+vim.g.netrw_keepdir = 0 -- keep current dir and browsing dir synced.
 
 -- On toggle of netrw, don't open [no name] buffer
 vim.cmd([[
@@ -51,5 +50,4 @@ augroup end
 vim.opt.shortmess:append("c")
 
 vim.cmd("set whichwrap+=<,>,[,],h,l")
-vim.cmd([[set iskeyword+=-]]) -- makes word-word one word isntead of split by -
--- vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
+vim.cmd([[set iskeyword+=-]]) -- makes word-word one word instead of split by -

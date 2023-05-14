@@ -21,7 +21,7 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Netrw
-keymap("n", "<leader>e", ":Lex 30<CR>", opts) -- toggle netrw to pwd
+keymap("n", "<leader>e", ":Ex<CR>", opts) -- toggle netrw to pwd
 keymap("n", "<leader>pv", ":Lex 30 %:p:h<CR>", opts) -- open netrw on current dir of open file. NOTE: pwd will not change
 keymap("n", "<leader>%", ":e %:h/", opts) -- start creating a new file in same dir as open file. Just need to type new files name and return
 
@@ -49,14 +49,7 @@ keymap("n", "<leader>gf", "<cmd>Telescope git_files<cr>", opts)
 -- see handlers.lua for definition of :Format cmd
 keymap("n", "<leader>fs", ":Format<cr><cmd>w<cr>", opts)
 
--- Session Management
-keymap("n", "<leader>ll", ":SessionManager load_last_session<CR>", opts)
-
 -- Gitsigns keymappings in the gitsigns.lua config file
-
--- Insert --
--- Press jk fast to enter
--- keymap("i", "jk", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode

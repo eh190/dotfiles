@@ -1,4 +1,5 @@
 "==== General Settings ====
+set background=dark
 set re=0                    "means vim can load highlighting in files (with ts) without freezing
 set scrolloff=8             "begin scroll x spaces from bottom
 set number                  "numbers are good

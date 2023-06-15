@@ -11,9 +11,6 @@
 #fnm
 eval "$(fnm env --use-on-cd)"
 
-source "$ZDOTDIR/aliases.zsh"
-source $ZDOTDIR/plugins/powerlevel10k/powerlevel10k.zsh-theme 
-
 # some useful options (man zshoptions)
 setopt autocd extendedglob nomatch menucomplete
 setopt interactive_comments
@@ -25,8 +22,8 @@ unsetopt BEEP
 
 # completions
 autoload -Uz compinit
-zstyle ':completion:*' menu select
-# zstyle ':completion::complete:lsof:*' menu yes select
+zstyle ':completion:*' menu select # highlights the file
+# zstyle ':completion::complete:lsof:*' menu yes select # doesn't highlight the file
 zmodload zsh/complist
 # compinit
 _comp_options+=(globdots)		# Include hidden files.
@@ -40,6 +37,16 @@ bindkey '^I'   autosuggest-accept       # tab          | complete
 bindkey '^[[Z' complete-word  # shift + tab  | complete 
 
 # Colors
+# This block identifies dotfiles and symlinks like bash does and colours them differently
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
 autoload -Uz colors && colors
 
 # Useful Functions
@@ -48,8 +55,12 @@ autoload -Uz colors && colors
 # Normal files to source
 #zsh_add_file "zsh-exports"
 #zsh_add_file "zsh-vim-mode"
-#zsh_add_file "zsh-functions.zsh"
-#zsh_add_file "zsh-prompt.zsh"
+zsh_add_file "aliases.zsh"
+
+# zsh_add_file "zsh-prompt.zsh"
+zsh_add_file "plugins/powerlevel10k/powerlevel10k.zsh-theme" 
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
 # Plugins
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
@@ -72,5 +83,4 @@ export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
 java11
 export PATH="/usr/local/sbin:$PATH"
 
-# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+

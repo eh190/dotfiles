@@ -39,6 +39,7 @@ mason_lspconfig.setup({
 		"rust_analyzer",
 		"emmet_ls",
 		"dockerls",
+		"angularls",
 	},
 })
 
@@ -67,6 +68,7 @@ local gopls_setup = require("user.lsp.settings.gopls")
 local lua_ls_setup = require("user.lsp.settings.lua_ls")
 local jsonl_setup = require("user.lsp.settings.jsonls")
 
+lspconfig.angularls.setup({ on_attach = opts.on_attach, capabilities = opts.capabilities })
 lspconfig.cssls.setup({ on_attach = opts.on_attach, capabilities = opts.capabilities })
 lspconfig.html.setup({ on_attach = opts.on_attach, capabilities = opts.capabilities })
 lspconfig.emmet_ls.setup({ on_attach = opts.on_attach, capabilities = opts.capabilities })

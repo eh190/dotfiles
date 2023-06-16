@@ -1,17 +1,17 @@
 ## Welcome to my Dotfiles!
 
-The homebrew installs are obviously done for mac, but all other settings should be platform agnostic.
+At some point this will include install scripts to make this process easier, as there are problems that are not covered here that I just fix as they occur (languages or cli tools not installed for example that prevent other things being installed).
 
 ### Required installs:
 
-My preference is to use iterm2 (but not essential)
+My preference is to use iterm2 (mac) or Windows Terminal (with GitBash/WSL profiles) (windows).
 
-- Homebrew
+- Package Manager (Homebrew/apt/chocolatey)
 - yarn
-- stow
+- fnm (node)
+- stow (for symlinking dotfiles)
 - neovim
 - git
-- fnm
 - ripgrep (required for telescope grep)
 
 - Clone down this repo into the HOME directory

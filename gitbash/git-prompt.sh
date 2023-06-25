@@ -1,7 +1,7 @@
    # git-prompt.sh should be symlinked to ~/.config/git
    
    # You may need to clone down this package from https://github.com/romkatv/gitstatus
-   [[ -f ~/.gitstatus/gitstatus.prompt.sh ]] && . ~/gitstatus/gitstatus.prompt.sh
+   source ~/gitstatus/gitstatus.prompt.sh
 
 	# Original in Program Files/Git/etc/profile.d for reference.
 	# This file overwrites the above, and bashrc can overwrite this
@@ -13,7 +13,7 @@
 	# PS1="$PS1"'\[\033[35m\]'       # change to purple
 	# PS1="$PS1"'$MSYSTEM '          # show MSYSTEM
 	# PS1="$PS1"'\[\033[33m\]' 
-    PS1="$PS1"'\[\033[97m\]'       # change to white
+    PS1="$PS1"'\[\033[38;5;39m\]'       # change to blue
 	PS1="$PS1"'\w'                 # current working directory
 
     # PS1='\[\033]0;$TITLEPREFIX:$PWD\007\]' # set window title

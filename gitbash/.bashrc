@@ -1,3 +1,6 @@
+#FNM
+eval "$(fnm env --use-on-cd)"
+
 # Colors
 # This block identifies dotfiles and symlinks like bash does and colours them differently
 if [ -x /usr/bin/dircolors ]; then

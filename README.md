@@ -6,13 +6,17 @@ At some point this will include install scripts to make this process easier, as 
 
 My preference is to use iterm2 (mac) or Windows Terminal (with GitBash/WSL profiles) (windows).
 
+### OS Agnositc:
+
 - Package Manager (Homebrew/apt/chocolatey)
-- yarn
 - fnm (node)
-- stow (for symlinking dotfiles)
 - neovim
-- git
 - ripgrep (required for telescope grep)
+
+### \*nix OS (including WSL):
+
+- stow (for symlinking dotfiles)
+- git
 
 - Clone down this repo into the HOME directory
 - cd ~/dotfiles
@@ -20,6 +24,17 @@ My preference is to use iterm2 (mac) or Windows Terminal (with GitBash/WSL profi
 - Folders will be placed relative to the internal folder structure e.g. in dotfiles/nvim/.config/nvim -> nvim will be placed in ~/.config/nvim
 
 Youtube vid explaining stow use https://www.youtube.com/watch?v=90xMTKml9O0&t=371s
+
+### Windows:
+
+- GitBash
+
+- Clone down this repo into the HOME directory
+- cd ~/dotfiles
+- Symlink .bashrc to ~/.bashrc
+- Symlink git-prompt to ~/.config/git/git-prompt.sh
+- Clone down this git status prompt: https://github.com/romkatv/gitstatus
+- Install Neovim following this: https://blog.nikfp.com/how-to-install-and-set-up-neovim-on-windows
 
 ## NVIM
 

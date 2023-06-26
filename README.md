@@ -31,8 +31,8 @@ Youtube vid explaining stow use https://www.youtube.com/watch?v=90xMTKml9O0&t=37
 
 - Clone down this repo into the HOME directory
 - cd ~/dotfiles
-- Symlink .bashrc to ~/.bashrc
-- Symlink git-prompt to ~/.config/git/git-prompt.sh
+- Symlink .bashrc to ~/.bashrc (mklink /D C:\Users\<user>\.bashrc C:\Users\<user>\dotfiles\gitbash\.bashrc)
+- Symlink git-prompt to ~/.config/git/git-prompt.sh (mklink /D C:\Users\<user>\.config\git\git-prompt.sh C:\Users\<user>\dotfiles\gitbash\git-prompt.sh)
 - Clone down this git status prompt: https://github.com/romkatv/gitstatus
 - Install Neovim following this: https://blog.nikfp.com/how-to-install-and-set-up-neovim-on-windows
 

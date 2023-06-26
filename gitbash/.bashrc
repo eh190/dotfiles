@@ -32,3 +32,5 @@ xterm*)
 	done
 	;;
 esac
+
+alias gs="git status"

@@ -12,6 +12,10 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+if [ -f ./work_aliases.sh ]; then
+    source "./work_aliases.sh"
+fi
+
 # The presence of this bashrc overrides the prebuilt aliases.sh in GitBash. So I've just added them here.
 
 # --show-control-chars: help showing Korean or accented characters

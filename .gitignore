@@ -6,4 +6,5 @@
 /zsh/.config/zsh/plugins
 /zsh/.config/zsh/work_aliases.zsh
 /zsh/.config/zsh/.p10k.zsh
+/gitbash/work_aliases.sh
 .DS_Store

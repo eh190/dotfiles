@@ -38,3 +38,6 @@ xterm*)
 esac
 
 alias gs="git status"
+
+HISTSIZE=1000
+HISTFILESIZE=2000

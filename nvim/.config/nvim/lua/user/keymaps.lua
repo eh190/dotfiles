@@ -50,7 +50,10 @@ keymap("n", "<leader>gf", "<cmd>Telescope git_files<cr>", opts)
 -- see handlers.lua for definition of :Format cmd
 keymap("n", "<leader>fs", ":Format<cr><cmd>w<cr>", opts)
 
--- ng (Angular) in ng.lua file
+-- Angular file switching
+keymap("n", "<leader>oc", ":edit %<.ts<CR>", opts)
+keymap("n", "<leader>ot", ":edit %<.html<CR>", opts)
+keymap("n", "<leader>os", ":edit %<.scss<CR>", opts)
 
 -- Gitsigns keymappings in the gitsigns.lua config file
 

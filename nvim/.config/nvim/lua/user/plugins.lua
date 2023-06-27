@@ -73,9 +73,6 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim") -- Formatting and linting
 	use("jayp0521/mason-null-ls.nvim") -- links null-ls formatting/linting to mason LSP
 
-	-- Angular LS Client
-	use({ "joeveiga/ng.nvim" })
-
 	-- Telescope
 	use({
 		"nvim-telescope/telescope.nvim",

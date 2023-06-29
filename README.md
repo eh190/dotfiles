@@ -30,11 +30,12 @@ Youtube vid explaining stow use https://www.youtube.com/watch?v=90xMTKml9O0&t=37
 - GitBash
 
 - Clone down this repo into the HOME directory
-- cd ~/dotfiles
-- Symlink .bashrc to ~/.bashrc (mklink /D C:\Users\<user>\.bashrc C:\Users\<user>\dotfiles\gitbash\.bashrc)
-- Symlink git-prompt to ~/.config/git/git-prompt.sh (mklink /D C:\Users\<user>\.config\git\git-prompt.sh C:\Users\<user>\dotfiles\gitbash\git-prompt.sh)
 - Clone down this git status prompt: https://github.com/romkatv/gitstatus
-- Install Neovim following this: https://blog.nikfp.com/how-to-install-and-set-up-neovim-on-windows
+- Setup Neovim following this: https://blog.nikfp.com/how-to-install-and-set-up-neovim-on-windows
+- cd ~/dotfiles
+- Symlink .bashrc to ~/.bashrc (`mklink /D C:\Users\<user>\.bashrc C:\Users\<user>\dotfiles\gitbash\.bashrc`)
+- Symlink git-prompt to ~/.config/git/git-prompt.sh (`mklink /D C:\Users\<user>\.config\git\git-prompt.sh C:\Users\<user>\dotfiles\gitbash\git-prompt.sh`)
+- Symlink nvim dir to ~/AppData/Local/nvim (`mklink /D C:\Users\<user>\AppData\Local\nvim C:\Users\<user>\dotfiles\nvim\.config\nvim`)
 
 ## NVIM
 
@@ -44,7 +45,7 @@ Youtube vid explaining stow use https://www.youtube.com/watch?v=90xMTKml9O0&t=37
 
 ### LSP and Null-Ls
 
-- You will need to install the Language servers you want in order to use linting and formatting. `Mason` and `mason-lspconfig` handle this in tandem - `mason-lspconfig` translates the 'normal' LS's into mason's version. To add one, add it to the 'ensure_installed' list in `lsp/mason.lua`, and call setup function on it (file has examples). This will auto install these servers on startup if they aren't already installed. For more info see these docs:
+- You will need to install the Language servers you want in order to use linting, formatting, and other language specific features. `Mason` and `mason-lspconfig` handle this in tandem - `mason-lspconfig` translates between `nvim-lspconfig` and mason's versions. To add one, add it to the 'ensure_installed' list in `lsp/mason.lua`, and call setup function on it (file has examples). This will auto install these servers on startup if they aren't already installed.
 - To see installed LSPs and formatters/linters run `:Mason`.
 
   - mason Docs https://github.com/williamboman/mason.nvim
@@ -57,7 +58,7 @@ Youtube vid explaining stow use https://www.youtube.com/watch?v=90xMTKml9O0&t=37
 
 - Null-Ls uses the native LSP to format and lint files. To add a formatter or linter it is best to go to the repo: https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins and see the builtin options for formatting and diagnostics (linting).
 - Previously, you had to ensure that the specific option you require is stored as a binary on your system and in your $PATH (see below example of gofumpt). Now, `mason-null-ls` handles this for us - in the `mason.lua` file we set up LSP with `mason-lsp`, but also add the formatters/linters we want with `mason-null-ls`. [mason-nulls-ls Docs](https://github.com/jay-babu/mason-null-ls.nvim).
-- Once this is done you can add it in `null-ls.lua` as a source. Note that in this file there is also format on save function set up.
+- Once this is done you can add it in `null-ls.lua` as a source. This is currently possible to do in `mason-null-ls` during setup - you can pass a handler function and add null-ls formatters there instead of doing in null-ls. Note that in this file there is also format on save function set up.
 - NOTE: if you add a null-ls formatter, it might start to conflict with the LSP formatter you have installed, and will ask you to choose an option everytime you save the file. To avoid this, ~~you can add a conditional in `handlers.lua` to resolve formatting for the lsp (and use null-ls instead)~~ DEPRECATED for v0.8. Instead, use lsp_formatting func in `null-ls.lua` to determine which server to use for formatting (set to null-ls as default currently)
 
 ### Example of using Null-Ls/LSP - Go

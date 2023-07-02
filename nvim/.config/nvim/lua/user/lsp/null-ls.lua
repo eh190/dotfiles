@@ -29,6 +29,7 @@ null_ls.setup({
 		formatting.stylua, -- lua
 		formatting.gofumpt, -- go
 		formatting.rustfmt, -- rust
+		formatting.clang_format, -- c
 		-- diagnostics.eslint_d, -- eslint diagnostics
 	},
 	on_attach = function(client, bufnr)

@@ -30,6 +30,7 @@ mason.setup({
 -- Once installed, call setup() on that LS (following pattern below). Can pass opts to LS if we want to override default config
 mason_lspconfig.setup({
 	ensure_installed = {
+		"clangd",
 		"cssls",
 		"gopls",
 		"html",
@@ -51,6 +52,7 @@ mason_null_ls.setup({
 		-- "eslint_d",
 		"gofumpt",
 		"rustfmt",
+		"clang-format",
 	},
 })
 

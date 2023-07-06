@@ -47,10 +47,7 @@ return packer.startup(function(use)
 	use("numToStr/Comment.nvim") -- Easily comment stuff
 
 	-- Colorschemes
-	use({ "ellisonleao/gruvbox.nvim" })
-	use("folke/tokyonight.nvim")
 	use("lunarvim/darkplus.nvim")
-	use("NTBBloodbath/doom-one.nvim")
 	use("rebelot/kanagawa.nvim")
 
 	-- cmp plugins

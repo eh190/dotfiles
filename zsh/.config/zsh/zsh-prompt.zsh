@@ -1,43 +1,8 @@
 #!/bin/sh
 
+# WOEFE GIT PROMPT
 #source woefe/git-prompt. Gives us a fully fleshed out git prompt
 source $ZDOTDIR/plugins/git-prompt.zsh/git-prompt.zsh 
-
-## autoload vcs and colors
-autoload -Uz vcs_info
-autoload -U colors && colors
-
-# enable only git 
-zstyle ':vcs_info:*' enable git 
-
-# setup a hook that runs before every ptompt. 
-precmd_vcs_info() { vcs_info }
-precmd_functions+=( precmd_vcs_info )
-setopt prompt_subst
-
-# add a function to check for untracked files in the directory.
-# from https://github.com/zsh-users/zsh/blob/master/Misc/vcs_info-examples
-zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
-# 
-+vi-git-untracked(){
-    if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
-        git status --porcelain | grep '??' &> /dev/null ; then
-        # This will show the marker if there are any untracked files in repo.
-        # If instead you want to show the marker only if there are untracked
-        # files in $PWD, use:
-        #[[ -n $(git ls-files --others --exclude-standard) ]] ; then
-        hook_com[staged]+='!' # signify new files with a bang
-    fi
-}
-
-#vcs_info for git prompt
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' unstagedstr '!'
-zstyle ':vcs_info:*' stagedstr '+'
-zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
-# zstyle ':vcs_info:git:*' formats " %r/%S %b %m%u%c "
-zstyle ':vcs_info:git:*' formats " %{$fg[blue]%}(%{$fg[yellow]%}%{$fg[magenta]%} %b%{$fg[blue]%})%F{yellow}%m%f %F{red}%u%f %F{green}%c%f"
-
 # woefe/git-prompt customisation. See https://github.com/woefe/git-prompt.zsh for docs
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{green}%f "
 ZSH_THEME_GIT_PROMPT_SUFFIX=" "
@@ -51,6 +16,53 @@ ZSH_THEME_GIT_PROMPT_STASHED=" %{$fg[blue]%}⚑"
 ZSH_THEME_GIT_PROMPT_BEHIND=" ↓"
 ZSH_THEME_GIT_PROMPT_AHEAD=" ↑"
 ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg_bold[green]%}✔"
+# Prompt using woefe/git-prompt.zsh
+PROMPT='%B%{$fg[blue]%}[%{$fg[white]%}%n%{$fg[blue]%}] %F{blue}%~%f $(gitprompt)%(?:%{$fg_bold[green]%}❯ :%{$fg_bold[red]%}❯%B )'
+
+# Right prompt
+RPROMPT="%{$fg[white]%}%*"
+
+# TODO look into this for more colors
+# https://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/
+# also ascii escape codes
+
+
+# VCS INFO PROMPT
+# ## autoload vcs and colors
+# autoload -Uz vcs_info
+# autoload -U colors && colors
+
+# # enable only git 
+# zstyle ':vcs_info:*' enable git 
+
+# # setup a hook that runs before every ptompt. 
+# precmd_vcs_info() { vcs_info }
+# precmd_functions+=( precmd_vcs_info )
+# setopt prompt_subst
+
+# # add a function to check for untracked files in the directory.
+# # from https://github.com/zsh-users/zsh/blob/master/Misc/vcs_info-examples
+# zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
+# # 
+# +vi-git-untracked(){
+#     if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+#         git status --porcelain | grep '??' &> /dev/null ; then
+#         # This will show the marker if there are any untracked files in repo.
+#         # If instead you want to show the marker only if there are untracked
+#         # files in $PWD, use:
+#         #[[ -n $(git ls-files --others --exclude-standard) ]] ; then
+#         hook_com[staged]+='!' # signify new files with a bang
+#     fi
+# }
+
+# #vcs_info for git prompt
+# zstyle ':vcs_info:*' check-for-changes true
+# zstyle ':vcs_info:*' unstagedstr '!'
+# zstyle ':vcs_info:*' stagedstr '+'
+# zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
+# # zstyle ':vcs_info:git:*' formats " %r/%S %b %m%u%c "
+# zstyle ':vcs_info:git:*' formats " %{$fg[blue]%}(%{$fg[yellow]%}%{$fg[magenta]%} %b%{$fg[blue]%})%F{yellow}%m%f %F{red}%u%f %F{green}%c%f"
+
 
 # format our main prompt for hostname current folder, and permissions.
 # These are alternative prompts and combinations
@@ -62,11 +74,3 @@ ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg_bold[green]%}✔"
 # PROMPT='%B%{$fg[blue]%}[%{$fg[white]%}%n%{$fg[blue]%}] %F{blue}%~%f '
 # PROMPT+="\$vcs_info_msg_0_ "
 
-# Prompt using woefe/git-prompt.zsh
-PROMPT='%B%{$fg[blue]%}[%{$fg[white]%}%n%{$fg[blue]%}] %F{blue}%~%f $(gitprompt)%(?:%{$fg_bold[green]%}❯ :%{$fg_bold[red]%}❯ )'
-
-# Right prompt
-RPROMPT="%{$fg[white]%}%*"
-# TODO look into this for more colors
-# https://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/
-# also ascii escape codes

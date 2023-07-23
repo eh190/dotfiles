@@ -13,11 +13,11 @@ ZSH_THEME_GIT_PROMPT_UNSTAGED=" %B%{$fg[yellow]%}!"
 ZSH_THEME_GIT_PROMPT_UNTRACKED=" %B%{$fg[blue]%}?"
 ZSH_GIT_PROMPT_SHOW_STASH=1
 ZSH_THEME_GIT_PROMPT_STASHED=" %{$fg[blue]%}⚑"
-ZSH_THEME_GIT_PROMPT_BEHIND=" ↓"
-ZSH_THEME_GIT_PROMPT_AHEAD=" ↑"
+ZSH_THEME_GIT_PROMPT_BEHIND=" %{$fg_bold[red]%}↓"
+ZSH_THEME_GIT_PROMPT_AHEAD=" %{$fg_bold[green]%}↑"
 ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg_bold[green]%}✔"
 # Prompt using woefe/git-prompt.zsh
-PROMPT='%B%{$fg[blue]%}[%{$fg[white]%}%n%{$fg[blue]%}] %F{blue}%~%f $(gitprompt)%(?:%{$fg_bold[green]%}❯ :%{$fg_bold[red]%}❯%B )'
+PROMPT='%{$fg[blue]%}[%{$fg_bold[white]%}%n%{$fg[blue]%}] %F{blue}%~%f $(gitprompt)%(?:%{$fg[green]%}❯ :%{$fg[red]%}❯ )'
 
 # Right prompt
 RPROMPT="%{$fg[white]%}%*"

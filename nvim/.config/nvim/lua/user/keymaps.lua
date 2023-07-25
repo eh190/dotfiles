@@ -55,8 +55,6 @@ keymap("n", "<leader>oc", ":edit %<.ts<CR>", opts)
 keymap("n", "<leader>ot", ":edit %<.html<CR>", opts)
 keymap("n", "<leader>os", ":edit %<.scss<CR>", opts)
 
--- Gitsigns keymappings in the gitsigns.lua config file
-
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)

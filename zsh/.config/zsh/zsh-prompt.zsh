@@ -17,10 +17,10 @@ ZSH_THEME_GIT_PROMPT_BEHIND=" %{$fg_bold[red]%}↓"
 ZSH_THEME_GIT_PROMPT_AHEAD=" %{$fg_bold[green]%}↑"
 ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg_bold[green]%}✔"
 # Prompt using woefe/git-prompt.zsh
-PROMPT='%{$fg[blue]%}[%{$fg_bold[white]%}%n%{$fg[blue]%}] %F{blue}%~%f $(gitprompt)%(?:%{$fg[green]%}❯ :%{$fg[red]%}❯ )'
+PROMPT='%B%{$fg[blue]%}[%{$fg[white]%}%n%{$fg[blue]%}] %F{blue}%~%f $(gitprompt)%(?:%{$fg[green]%}❯ :%{$fg[red]%}❯ )%b'
 
 # Right prompt
-RPROMPT="%{$fg[white]%}%*"
+RPROMPT='%{$fg[white]%}%*'
 
 # TODO look into this for more colors
 # https://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/

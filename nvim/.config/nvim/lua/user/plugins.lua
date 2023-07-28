@@ -105,9 +105,6 @@ return packer.startup(function(use)
 	-- Git (fugitive)
 	use("tpope/vim-fugitive")
 
-	-- Save Sessions
-	use("Shatur/neovim-session-manager")
-
 	-- Harpoon
 	use("ThePrimeagen/harpoon")
 

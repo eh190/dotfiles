@@ -14,22 +14,16 @@ local keymap = vim.api.nvim_set_keymap
 --   command_mode = "c",
 
 -- Normal --
--- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
-
 -- Netrw
 keymap("n", "<leader>e", ":Ex<CR>", opts) -- toggle netrw to pwd
 keymap("n", "<leader>pv", ":Lex 30 %:p:h<CR>", opts) -- open netrw on current dir of open file. NOTE: pwd will not change
 keymap("n", "<leader>%", ":e %:h/", opts) -- start creating a new file in same dir as open file. Just need to type new files name and return
 
--- Resize with arrows
-keymap("n", "<leader>u", ":resize +2<CR>", opts)
-keymap("n", "<leader>d", ":resize -2<CR>", opts)
-keymap("n", "<leader>h", ":vertical resize -2<CR>", opts)
-keymap("n", "<leader>l", ":vertical resize +2<CR>", opts)
+-- Resize buffers with arrows
+keymap("n", "<C-Up>", ":resize +2<CR>", opts)
+keymap("n", "<C-Down>", ":resize -2<CR>", opts)
+keymap("n", "<C-Right>", ":vertical resize -5<CR>", opts)
+keymap("n", "<C-Left>", ":vertical resize +5<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
@@ -45,9 +39,10 @@ keymap("n", "<leader>ts", "<cmd>Telescope grep_string<cr>", opts)
 keymap("n", "<leader>gs", "<cmd>Telescope git_status<cr>", opts)
 keymap("n", "<leader>gf", "<cmd>Telescope git_files<cr>", opts)
 
--- Format and save
+-- Format
 -- see handlers.lua for definition of :Format cmd
-keymap("n", "<leader>fs", ":Format<cr><cmd>w<cr>", opts)
+keymap("n", "<leader>fs", ":Format<cr><cmd>w<cr>", opts) -- Format and Save
+keymap("n", "<leader>fb", ":Format<cr>", opts) -- Format
 
 -- Angular file switching
 keymap("n", "<leader>oc", ":edit %<.ts<CR>", opts)

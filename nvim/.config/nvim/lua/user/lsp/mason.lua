@@ -51,7 +51,7 @@ mason_null_ls.setup({
 		"stylua",
 		-- "eslint_d",
 		"gofumpt",
-		"rustfmt",
+		-- "rustfmt", -- deprecated: installed via rustup now
 		"clang-format",
 	},
 })

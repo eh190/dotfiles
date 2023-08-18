@@ -34,10 +34,12 @@ keymap("n", "<leader>hs", ":sbuffer<CR>", opts) -- open a horizontal split of cu
 
 -- Telescope
 keymap("n", "<leader>pf", "<cmd>Telescope find_files<cr>", opts)
-keymap("n", "<leader>tg", "<cmd>Telescope live_grep<cr>", opts)
-keymap("n", "<leader>ts", "<cmd>Telescope grep_string<cr>", opts)
-keymap("n", "<leader>gs", "<cmd>Telescope git_status<cr>", opts)
-keymap("n", "<leader>gf", "<cmd>Telescope git_files<cr>", opts)
+keymap("n", "<leader>tlg", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<leader>tgs", "<cmd>Telescope git_status<cr>", opts)
+keymap("n", "<leader>tr", "<cmd>Telescope lsp_references<cr>", opts)
+keymap("n", "<leader>ts", "<cmd>Telescope git_stash<cr>", opts)
+-- keymap("n", "<leader>ts", "<cmd>Telescope grep_string<cr>", opts)
+-- keymap("n", "<leader>tgf", "<cmd>Telescope git_files<cr>", opts)
 
 -- Format
 -- see handlers.lua for definition of :Format cmd

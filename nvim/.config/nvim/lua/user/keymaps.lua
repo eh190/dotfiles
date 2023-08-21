@@ -32,6 +32,10 @@ keymap("n", "<C-q>", ":bdelete<CR>", opts)
 keymap("n", "<leader>vs", ":vertical sbuffer<CR>", opts) -- open a vertical split of current buffer
 keymap("n", "<leader>hs", ":sbuffer<CR>", opts) -- open a horizontal split of current buffer
 
+-- Navigate Quickfix list
+keymap("n", "]c", ":cnext<CR>", opts)
+keymap("n", "[c", ":cprev<CR>", opts)
+
 -- Telescope
 keymap("n", "<leader>pf", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<leader>tlg", "<cmd>Telescope live_grep<cr>", opts)

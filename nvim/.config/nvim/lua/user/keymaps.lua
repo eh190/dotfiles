@@ -42,6 +42,7 @@ keymap("n", "<leader>tlg", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>tgs", "<cmd>Telescope git_status<cr>", opts)
 keymap("n", "<leader>tr", "<cmd>Telescope lsp_references<cr>", opts)
 keymap("n", "<leader>ts", "<cmd>Telescope git_stash<cr>", opts)
+keymap("n", "<leader>tgh", "<cmd>Telescope git_bcommits<cr>", opts)
 -- keymap("n", "<leader>ts", "<cmd>Telescope grep_string<cr>", opts)
 -- keymap("n", "<leader>tgf", "<cmd>Telescope git_files<cr>", opts)
 

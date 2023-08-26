@@ -12,6 +12,7 @@ My preference is to use iterm2 (mac) or Windows Terminal (with GitBash/WSL profi
 - fnm (node)
 - neovim
 - ripgrep (required for telescope grep)
+- fzf
 
 ### \*nix OS (including WSL):
 

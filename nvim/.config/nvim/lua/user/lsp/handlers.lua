@@ -84,19 +84,22 @@ local function lsp_keymaps(bufnr)
 	vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format({ bufnr = bufnr })' ]])
 end
 
+-- local format_status_ok, format_buf = pcall(require, "user.lsp.format_buffer_save")
+-- if not format_status_ok then
+-- 	return
+-- end
+
 M.on_attach = function(client, bufnr)
 	lsp_keymaps(bufnr)
 	lsp_highlight_document(client)
+	-- format_buf(client, bufnr)
 end
 
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
-
-local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_ok then
+local cmp_status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not cmp_status_ok then
 	return
 end
 
--- M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 M.capabilities = cmp_nvim_lsp.default_capabilities()
 
 return M

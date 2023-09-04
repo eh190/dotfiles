@@ -38,6 +38,8 @@ xterm*)
 esac
 
 alias gs="git status"
+alias ff="find * -type f | fzf | xargs -r -o nvim" # cli fuzzy finding files
+
 
 HISTSIZE=1000
 HISTFILESIZE=2000

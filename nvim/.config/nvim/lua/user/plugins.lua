@@ -72,12 +72,18 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim") -- Formatting and linting
 	use("jayp0521/mason-null-ls.nvim") -- links null-ls formatting/linting to mason LSP
 
-	-- Telescope
+	use("windwp/nvim-autopairs") 	-- Auto Pairs -- integrates with both cmp and treesitter
+	use("kyazdani42/nvim-web-devicons") -- required by bufferline
+	use({ "akinsho/bufferline.nvim", tag = "v2.*" }) 	-- Bufferline
+	use("lewis6991/gitsigns.nvim") 	-- Gitsigns
+	use("tpope/vim-fugitive") 	-- Git (fugitive)
+	use("ThePrimeagen/harpoon") 	-- Harpoon
+
+-- Telescope
 	use({
-		"nvim-telescope/telescope.nvim",
+		"nvim-telescope/telescope.nvim", 	
 		tag = "0.1.0",
 	})
-
 	-- Treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
@@ -85,22 +91,6 @@ return packer.startup(function(use)
 			require("nvim-treesitter.install").update({ with_sync = true })
 		end,
 	})
-
-	-- Auto Pairs -- integrates with both cmp and treesitter
-	use("windwp/nvim-autopairs")
-
-	-- Bufferline
-	use("kyazdani42/nvim-web-devicons")
-	use({ "akinsho/bufferline.nvim", tag = "v2.*" })
-
-	-- Gitsigns
-	use("lewis6991/gitsigns.nvim")
-
-	-- Git (fugitive)
-	use("tpope/vim-fugitive")
-
-	-- Harpoon
-	use("ThePrimeagen/harpoon")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

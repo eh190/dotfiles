@@ -76,6 +76,7 @@ lspconfig.html.setup({ on_attach = opts.on_attach, capabilities = opts.capabilit
 lspconfig.emmet_ls.setup({ on_attach = opts.on_attach, capabilities = opts.capabilities })
 lspconfig.dockerls.setup({ on_attach = opts.on_attach, capabilities = opts.capabilities })
 lspconfig.rust_analyzer.setup({ on_attach = opts.on_attach, capabilities = opts.capabilities })
+lspconfig.clangd.setup({ on_attach = opts.on_attach, capabilities = opts.capabilities })
 
 lspconfig.tsserver.setup({
 	on_attach = opts.on_attach,

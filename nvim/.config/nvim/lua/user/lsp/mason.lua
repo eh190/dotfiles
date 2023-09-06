@@ -52,7 +52,6 @@ mason_null_ls.setup({
 		-- "eslint_d",
 		"gofumpt",
 		-- "rustfmt", -- deprecated: installed via rustup now
-		"clang-format",
 	},
 })
 

@@ -156,8 +156,8 @@ C = deletes to end of line and inserts
 cc = deletes and goes into insert
 S = delete whole line, go into insert mode
 s = delete character and into insert mode
-f + capital letter = jump to first instance of that capital letter. ‘,’ goes to next instance of letter
-F = f but in reverse. ‘;’ goes to next in this version
+f + letter = jump to first instance of that capital letter. ‘;’ goes to next instance of letter, ',' goes to prev
+F = f but in reverse. 
 
 { = jump to paragraph above (non contiguous code)
 } = jump to paragraph below (non contiguous code)
@@ -170,6 +170,9 @@ ci{ = delete contents of brackets and insert mode
 :bn = buffer next
 :bp = buffer previous
 :b <name of file> = select specific buffer
+:ls = list open buffers
+:tabnew % = create new tab based on current buffer
+gt = switch tabs
 
 Ctrl x + ctrl o = autocomplete in insert mode
 

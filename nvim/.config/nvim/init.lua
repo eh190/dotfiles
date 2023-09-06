@@ -9,7 +9,7 @@ require("user.harpoon")
 require("user.treesitter")
 require("user.autopairs")
 require("user.comment")
-require("user.bufferline")
+require("user.bufbar")
 require("user.gitsigns")
 
 -- local group = vim.api.nvim_create_augroup("Smash", { clear = true })

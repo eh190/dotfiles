@@ -73,11 +73,10 @@ return packer.startup(function(use)
 	use("jayp0521/mason-null-ls.nvim") -- links null-ls formatting/linting to mason LSP
 
 	use("windwp/nvim-autopairs") 	-- Auto Pairs -- integrates with both cmp and treesitter
-	use("kyazdani42/nvim-web-devicons") -- required by bufferline
-	use({ "akinsho/bufferline.nvim", tag = "v2.*" }) 	-- Bufferline
 	use("lewis6991/gitsigns.nvim") 	-- Gitsigns
 	use("tpope/vim-fugitive") 	-- Git (fugitive)
 	use("ThePrimeagen/harpoon") 	-- Harpoon
+  use("ojroques/nvim-bufbar") -- bufferline
 
 -- Telescope
 	use({

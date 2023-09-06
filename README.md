@@ -62,37 +62,9 @@ Youtube vid explaining stow use https://www.youtube.com/watch?v=90xMTKml9O0&t=37
 ### Null-Ls (currently not maintained)
 
 - Null-Ls uses the native LSP to format and lint files. To add a formatter or linter it is best to go to the repo: https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins and see the builtin options for formatting and diagnostics (linting).
-- Previously, you had to ensure that the specific option you require is stored as a binary on your system and in your $PATH (see below example of gofumpt). Now, `mason-null-ls` handles this for us - in the `mason.lua` file we set up LSP with `mason-lsp`, but also add the formatters/linters we want with `mason-null-ls`. [mason-nulls-ls Docs](https://github.com/jay-babu/mason-null-ls.nvim).
+- Previously, you had to ensure that the specific option you require is stored as a binary on your system and in your $PATH. Now, `mason-null-ls` handles this for us - in the `mason.lua` file we set up LSP with `mason-lsp`, but also add the formatters/linters we want with `mason-null-ls`. [mason-nulls-ls Docs](https://github.com/jay-babu/mason-null-ls.nvim).
 - Once this is done you can add it in `null-ls.lua` as a source. This is currently possible to do in `mason-null-ls` during setup - you can pass a handler function and add null-ls formatters there instead of doing in null-ls. Note that in this file there is also format on save function set up.
 - NOTE: if you add a null-ls formatter, it might start to conflict with the LSP formatter you have installed, and will ask you to choose an option everytime you save the file. To avoid this, ~~you can add a conditional in `handlers.lua` to resolve formatting for the lsp (and use null-ls instead)~~ DEPRECATED for v0.8. Instead, use lsp_formatting func in `null-ls.lua` to determine which server to use for formatting (set to null-ls as default currently)
-
-### Example of using Null-Ls/LSP - Go
-
-Both methods use gofumpt to format files, but null-ls enables me to format on save without manually running the format lsp command.
-
-See this video https://www.youtube.com/watch?v=b7OguLuaYvE&t=481s about null-ls for more info.
-
-## !!!OLD WAY OF USING NULL LS FORMATTERS!!! START
-
-### LSP VERSION
-
-- I have installed `gofumpt` via `go install mvdan.cc/gofumpt@latest` from https://github.com/mvdan/gofumpt in order to use gofumpt formatter with gopls lsp. Once installed, I created a `gopls.lua` settings file and followed the repo docs on adding gofumpt to this config. Now, if I run `lua vim.lsp.buf.format({ bufnr = bufnr })` (nvim > v0.8) / `lua vim.lsp.buf.formatting_sync()` (nvim < 0.8) or `<leader>fs` keymap, it will format the file with gofumpt.
-
-### NULL-LS VERSION
-
-- To add gofumpt to null-ls I need to install gofumpt. `go install mvdan.cc/gofumpt@latest` has done this already, but I could always use homebrew - `brew install gofumpt`. Using Homebrew would mean the binary is added to my $PATH automatically (because it's placed in `/usr/local/bin`). However, it is recommended that you use your languages package manager for each binary e.g. cargo for lua, npm for prettier etc.
-- Then I added it to my `null-ls.lua` sources. ~~Finally I added a line in `handlers.lua` to turn off gopls formatting and use null-ls instead.~~
-- Finally, I need to make sure `gofumpt` is added as a binary on my system. Assuming gofumpt has installed in `~/go/bin` then `export PATH="$HOME/go/bin:$PATH"` in `.zshrc` will add it to the $PATH. To check, run `echo $PATH` or `echo $path` to see which binaries are included. See this blog for more information: https://medium.com/codex/adding-executable-program-commands-to-the-path-variable-5e45f1bdf6ce
-
-Currently, there are 3 formatters that need to be installed:
-
-- `cargo install stylua`
-- `go install mvdan.cc/gofumpt@latest`
-- `npm install prettier`
-
-You can see this list in `lua/user/lsp/null-ls.lua` under setup > sources.
-
-## !!!OLD WAY OF USING NULL LS FORMATTERS!!! END
 
 ### Treesitter
 

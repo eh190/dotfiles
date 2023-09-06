@@ -93,7 +93,8 @@ You can see this list in `lua/user/lsp/null-ls.lua` under setup > sources.
 ### Treesitter
 
 - Handles syntax highlighting.
-- For a new LSP, add the same to the `treesitter.lua` sources for syntax highlighting.
+- For a new LSP, add the same to the `treesitter.lua` sources for syntax highlighting, or use TSInstall <source-name> to manually add.
+- TSInstallInfo brings up all available sources, and their install status
 - If after updating plugins, treesitter gives the error "treesitter/highlighter Error executing lua..." run `:TSUpdate` to update the installed sources.
 
 ### Session Management

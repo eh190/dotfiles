@@ -44,7 +44,7 @@ Youtube vid explaining stow use https://www.youtube.com/watch?v=90xMTKml9O0&t=37
 - Uses Packer as the plug in manager. This should self install on start up if not already installed, and install/update any plugins with file changes. Run `:PackerInstall` to manually install, or `:PackerClean` to remove plugins
 - Docs: https://github.com/wbthomason/packer.nvim
 
-### LSP and Null-Ls
+### LSP 
 
 - You will need to install the Language servers you want in order to use linting, formatting, and other language specific features. `Mason` and `mason-lspconfig` handle this in tandem - `mason-lspconfig` translates between `nvim-lspconfig` and mason's versions. To add one, add it to the 'ensure_installed' list in `lsp/mason.lua`, and call setup function on it (file has examples). This will auto install these servers on startup if they aren't already installed.
 - To see installed LSPs and formatters/linters run `:Mason`.
@@ -56,6 +56,10 @@ Youtube vid explaining stow use https://www.youtube.com/watch?v=90xMTKml9O0&t=37
 - You might also want to install the relevant TREESITTER lsp for syntax highlighting for the new Language installed (`treesitter.lua` ensure_installed object [Treesitter Supported Languages] (https://github.com/nvim-treesitter/nvim-treesitter#supported-languages))
 - Once installed you can format a file using the command `lua vim.lsp.buf.format({ bufnr = bufnr })` (neovim v0.8)/ `lua vim.lsp.buf.formatting_sync()` (neovim < v0.8) using the relative language server for that file.
 - You can ovveride the defaults by passing in your own configs (settings dir). See `mason.lua`, `settings` dir (in lsp) and `handlers.lua` for more information.
+- To use another formatter, such as Prettier, you can install the binary (using relative package manager is best) and then use the keymap(s) to format using a binary (keymaps file)
+- Lots of LSPs now format e.g. rust uses rustfmt, c using clang-format, go uses gopls or, as I've set up, gofumpt so you don't need to install those (just use the LSP)
+
+### Null-Ls (currently not maintained)
 
 - Null-Ls uses the native LSP to format and lint files. To add a formatter or linter it is best to go to the repo: https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins and see the builtin options for formatting and diagnostics (linting).
 - Previously, you had to ensure that the specific option you require is stored as a binary on your system and in your $PATH (see below example of gofumpt). Now, `mason-null-ls` handles this for us - in the `mason.lua` file we set up LSP with `mason-lsp`, but also add the formatters/linters we want with `mason-null-ls`. [mason-nulls-ls Docs](https://github.com/jay-babu/mason-null-ls.nvim).

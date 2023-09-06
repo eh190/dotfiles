@@ -15,6 +15,10 @@ local lsp_formatting = function(bufnr)
 	vim.lsp.buf.format({
 		filter = function(client)
 			-- apply logic to use different servers instead of null-ls here
+			if client.name == "dockerls" then
+				null_ls.disable({ "prettier" })
+			end
+
 			return client.name == "null-ls"
 		end,
 		bufnr = bufnr,
@@ -24,7 +28,8 @@ end
 null_ls.setup({
 	debug = false,
 	sources = {
-		formatting.prettier, -- ts, js, json, markdown
+		formatting.prettier.with({ disabled_filetypes = { "yaml" } }),
+		-- formatting.prettier, -- ts, js, json, markdown
 		-- formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", { "--tab-width", 4 } } }),
 		formatting.stylua, -- lua
 		formatting.gofumpt, -- go

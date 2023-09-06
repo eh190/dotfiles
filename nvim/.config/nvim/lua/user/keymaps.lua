@@ -62,6 +62,7 @@ keymap("n", "<leader>os", ":edit %<.scss<CR>", opts)
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
+keymap("v", "<leader>fs", ":Format<cr><cmd>w<cr>", opts) -- Format and Save visual selection
 
 -- Move text up and down
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)

@@ -48,10 +48,7 @@ mason_lspconfig.setup({
 mason_null_ls.setup({
 	ensure_installed = {
 		"prettier",
-		"stylua",
 		-- "eslint_d",
-		"gofumpt",
-		-- "rustfmt", -- deprecated: installed via rustup now
 	},
 })
 

@@ -31,10 +31,6 @@ null_ls.setup({
 		formatting.prettier.with({ disabled_filetypes = { "yaml" } }),
 		-- formatting.prettier, -- ts, js, json, markdown
 		-- formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", { "--tab-width", 4 } } }),
-		formatting.stylua, -- lua
-		formatting.gofumpt, -- go
-		formatting.rustfmt, -- rust
-		formatting.clang_format, -- c
 		-- diagnostics.eslint_d, -- eslint diagnostics
 	},
 	on_attach = function(client, bufnr)

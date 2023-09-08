@@ -50,7 +50,7 @@ keymap("n", "<leader>tgh", "<cmd>Telescope git_bcommits<cr>", opts)
 -- see handlers.lua for definition of :Format cmd (uses lsp)
 keymap("n", "<leader>fs", ":Format<cr><cmd>w<cr>", opts) -- Format and Save
 keymap("n", "<leader>fb", ":Format<cr>", opts) -- Format
-keymap("n", "<leader>fp", "<cmd>%!prettier --stdin-filepath %<cr>", opts) -- requires prettier binary installed
+keymap("n", "<leader>fp", "mt<cmd>%!npx prettier --stdin-filepath %<cr>'t", opts) -- requires prettier binary installed
 keymap("n", "<leader>fc", "<cmd>%!clang-format --assume-filename=%<cr>", opts) -- requires clang-format binary installed
 
 -- Angular file switching

@@ -73,10 +73,6 @@ Youtube vid explaining stow use https://www.youtube.com/watch?v=90xMTKml9O0&t=37
 - TSInstallInfo brings up all available sources, and their install status
 - If after updating plugins, treesitter gives the error "treesitter/highlighter Error executing lua..." run `:TSUpdate` to update the installed sources.
 
-### Session Management
-
-- Using the `nvim-sessions-mananger` plugin, it uses :mksession to save current sessions automatically on quit. To load last session use the keymap `<leader>ll`. To load another session use `:SessionManager load_session` and choose which one to load. See the docs for more info https://github.com/Shatur/neovim-session-manager
-
 ### Git
 
 - Although Gitsigns has some functionality for Git, I only really use the git blame line feature. The BEST one shop stop for Git is [Vim Fugitive](https://github.com/tpope/vim-fugitive).

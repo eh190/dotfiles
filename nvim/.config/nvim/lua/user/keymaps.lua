@@ -26,8 +26,8 @@ keymap("n", "<C-Right>", ":vertical resize -5<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize +5<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+-- keymap("n", "<S-l>", ":bnext<CR>", opts)
+-- keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<C-q>", ":bdelete<CR>", opts)
 keymap("n", "<leader>vs", ":vertical sbuffer<CR>", opts) -- open a vertical split of current buffer
 keymap("n", "<leader>hs", ":sbuffer<CR>", opts) -- open a horizontal split of current buffer
@@ -36,6 +36,10 @@ keymap("n", "<leader>hs", ":sbuffer<CR>", opts) -- open a horizontal split of cu
 keymap("n", "]c", ":cnext<CR>", opts)
 keymap("n", "[c", ":cprev<CR>", opts)
 
+-- Save/ Load sessions
+keymap("n", "<leader>ss", "<cmd>mks! ~/mysession.nvim<cr><cmd>echo 'current session saved'<cr>", opts) -- this will overwrite any exisitng session in the session file
+keymap("n", "<leader>ls", "<cmd>source ~/mysession.nvim<cr><cmd>echo 'previous session loaded'<cr>", opts) -- loads the session from mysession file
+
 -- Telescope
 keymap("n", "<leader>pf", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<leader>tlg", "<cmd>Telescope live_grep<cr>", opts)
@@ -43,8 +47,8 @@ keymap("n", "<leader>tgs", "<cmd>Telescope git_status<cr>", opts)
 keymap("n", "<leader>tr", "<cmd>Telescope lsp_references<cr>", opts)
 keymap("n", "<leader>ts", "<cmd>Telescope git_stash<cr>", opts)
 keymap("n", "<leader>tgh", "<cmd>Telescope git_bcommits<cr>", opts)
--- keymap("n", "<leader>ts", "<cmd>Telescope grep_string<cr>", opts)
--- keymap("n", "<leader>tgf", "<cmd>Telescope git_files<cr>", opts)
+keymap("n", "<leader>tb", "<cmd>Telescope buffers<cr>", opts)
+keymap("n", "<leader>tof", "<cmd>Telescope oldfiles<cr>", opts)
 
 -- Format
 -- see handlers.lua for definition of :Format cmd (uses lsp)

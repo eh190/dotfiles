@@ -76,7 +76,7 @@ return packer.startup(function(use)
 	use("lewis6991/gitsigns.nvim") 	-- Gitsigns
 	use("tpope/vim-fugitive") 	-- Git (fugitive)
 	use("ThePrimeagen/harpoon") 	-- Harpoon
-  use("ojroques/nvim-bufbar") -- bufferline
+  use("j-morano/buffer_manager.nvim") -- pop up window to easy delete buffers
 
 -- Telescope
 	use({

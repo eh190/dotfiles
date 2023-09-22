@@ -6,17 +6,7 @@
 	# Original in Program Files/Git/etc/profile.d for reference.
 	# This file overwrites the above, and bashrc can overwrite this
 	
-    PS1='\[\033]0;$TITLEPREFIX:$PWD\007\]' # set window title
-	PS1="$PS1"'\n'                 # new line
-    PS1="$PS1"'\[\033[38;5;74;1m\]'       # change to blue
-	PS1="$PS1"'[edhughes] '        # could be username @host 
-	# PS1="$PS1"'\[\033[35m\]'       # change to purple
-	# PS1="$PS1"'$MSYSTEM '          # show MSYSTEM
-	# PS1="$PS1"'\[\033[33m\]' 
-    PS1="$PS1"'\[\033[38;5;39m\]'       # change to blue
-	PS1="$PS1"'\w'                 # current working directory
-
-    # PS1='\[\033]0;$TITLEPREFIX:$PWD\007\]' # set window title
+  # PS1='\[\033]0;$TITLEPREFIX:$PWD\007\]' # set window title
 	# PS1="$PS1"'\n'                 # new line
 	# PS1="$PS1"'\[\033[32m\]'       # change to green
 	# PS1="$PS1"'\u@\h '             # user@host<space>
@@ -41,9 +31,63 @@
 	# 		PS1="$PS1"'`__git_ps1`'   # bash function
 	# 	fi
 	# fi
+
+# EXPERIMENTS IN GIT STATUS LINE
+# export GIT_PS1_SHOWDIRTYSTATE=1
+# export GIT_PS1_SHOWSTASHSTATE=1
+# export GIT_PS1_SHOWUNTRACKEDFILES=1
+# export GIT_PS1_DESCRIBE_STYLE='contains'
+# export GIT_PS1_SHOWUPSTREAM='auto'  
+#   function __fastgit_ps1 () {
+#     branch=""
+
+#     local headfile head branch
+#     local dir="$PWD"
+
+#     while [ -n "$dir" ]; do
+#         if [ -e "$dir/.git/HEAD" ]; then
+#             headfile="$dir/.git/HEAD"
+#             break
+#         fi
+#         dir="${dir%/*}"
+#     done
+
+#     if [ -e "$headfile" ]; then
+#         read -r head < "$headfile" || return
+#         case "$head" in
+#             ref:*) branch="${head##*/}" ;;
+#             "") branch="" ;;
+#             *) branch="${head:0:7}" ;;  #Detached head. You can change the format for this too.
+#         esac
+#     fi
+
+#     if [ ! -z "$branch" ]; then
+#         branch="($branch)"
+#     fi
+
+#     # Edit to suit your needs. Note the branch will be wrapped in parenthesis if it's set. Completely empty otherwise.
+#     export PS1="$PS1"'\[\e[33m\]\w\[\e[0m\] \[\033[36m\]$branch\[\033[0m\]'
+#     }
+# export PROMPT_COMMAND=__fastgit_ps1
+
+# function parse_git_dirty {
+#   [[ $(git status --porcelain 2> /dev/null) ]] && echo "*"
+# }
+# function parse_git_branch {
+#   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (\1$(parse_git_dirty))/"
+# }
 	
+# PROMPT
+  PS1='\[\033]0;$TITLEPREFIX:$PWD\007\]' # set window title
+	PS1="$PS1"'\n'                 # new line
+	PS1="$PS1"'\t '                # time
+  PS1="$PS1"'\[\033[38;5;74;1m\]'       # change to blue
+	# PS1="$PS1"'[edhughes] '        # could be username @host 
+  # PS1="$PS1"'\[\033[38;5;39m\]'       # change to bright electric blue
+	PS1="$PS1"'\w'                 # current working directory
 	# PS1="$PS1"'\n'                 # new line
-	PS1="$PS1"' ${GITSTATUS_PROMPT} '    # use the git status prompt package
+	PS1="$PS1"' ${GITSTATUS_PROMPT} '    # use the git status prompt package -- this is the fastest way
+  # PS1="$PS1"'$(parse_git_branch)'
 	PS1="$PS1"'\[\033[38;5;46;1m\]'       # change to bole green
 	PS1="$PS1"'❯ '                 # prompt: always ❯ 
 	PS1="$PS1"'\[\033[97m\]'       # change to white

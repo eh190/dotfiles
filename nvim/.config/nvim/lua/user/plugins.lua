@@ -52,6 +52,7 @@ return packer.startup(function(use)
 	-- Colorschemes
 	use("lunarvim/darkplus.nvim")
 	use("rebelot/kanagawa.nvim")
+  use("rose-pine/neovim")
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin

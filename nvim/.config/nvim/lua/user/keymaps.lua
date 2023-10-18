@@ -53,9 +53,9 @@ keymap("n", "<leader>tof", "<cmd>Telescope oldfiles<cr>", opts)
 -- Format
 -- see handlers.lua for definition of :Format cmd (uses lsp)
 keymap("n", "<leader>fs", ":Format<cr><cmd>w<cr>", opts) -- Format and Save
-keymap("n", "<leader>fb", ":Format<cr>", opts) -- Format
 keymap("n", "<leader>fp", "mt<cmd>%!npx prettier --stdin-filepath %<cr>'t", opts) -- requires prettier binary installed
 keymap("n", "<leader>fc", "<cmd>%!clang-format --assume-filename=%<cr>", opts) -- requires clang-format binary installed
+vim.keymap.set({"x", "v"}, "<leader>fs", "<cmd> lua vim.lsp.buf.format({async = true, range = {['start'] = vim.api.nvim_buf_get_mark(0, '<'),['end'] = vim.api.nvim_buf_get_mark(0, '>'),}})<cr><cmd>w<cr>", opts) -- Format and Save visual selection
 
 -- Angular file switching
 keymap("n", "<leader>oc", ":edit %<.ts<CR>", opts)
@@ -66,8 +66,6 @@ keymap("n", "<leader>os", ":edit %<.scss<CR>", opts)
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
-keymap("v", "<leader>fs", ":Format<cr><cmd>w<cr>", opts) -- Format and Save visual selection
-
 -- Move text up and down
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)

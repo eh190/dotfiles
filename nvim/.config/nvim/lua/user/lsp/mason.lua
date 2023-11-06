@@ -3,27 +3,27 @@
 -- Migrating to mason from old nvim-lsp-installer https://github.com/williamboman/nvim-lsp-installer/discussions/876
 local mason_status_ok, mason = pcall(require, "mason")
 if not mason_status_ok then
-	return
+  return
 end
 
 local mason_lsp_status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
 if not mason_lsp_status_ok then
-	return
+  return
 end
 
 local mason_null_ls_status_ok, mason_null_ls = pcall(require, "mason-null-ls")
 if not mason_null_ls_status_ok then
-	return
+  return
 end
 
 mason.setup({
-	ui = {
-		icons = {
-			package_installed = "✓",
-			package_pending = "➜",
-			package_uninstalled = "✗",
-		},
-	},
+  ui = {
+    icons = {
+      package_installed = "✓",
+      package_pending = "➜",
+      package_uninstalled = "✗",
+    },
+  },
 })
 
 -- Add language servers here. Auto install on vim start if not already. Maps to 'mason' language servers (:Mason to see mason LS's)
@@ -46,25 +46,25 @@ mason_lspconfig.setup({
 
 -- Passes formatters installed by Mason to null-ls for format on save
 mason_null_ls.setup({
-	ensure_installed = {
-		"prettier",
-		-- "eslint_d",
-	},
+  ensure_installed = {
+    "prettier",
+    -- "eslint_d",
+  },
 })
 
 local lsp_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lsp_status_ok then
-	return
+  return
 end
 
 local opts = {
-	on_attach = require("user.lsp.handlers").on_attach,
-	capabilities = require("user.lsp.handlers").capabilities,
+  on_attach = require("user.lsp.handlers").on_attach,
+  capabilities = require("user.lsp.handlers").capabilities,
 }
 
 local gopls_setup = require("user.lsp.settings.gopls")
 local lua_ls_setup = require("user.lsp.settings.lua_ls")
-local jsonl_setup = require("user.lsp.settings.jsonls")
+local jsonls_setup = require("user.lsp.settings.jsonls")
 
 lspconfig.angularls.setup({ on_attach = opts.on_attach, capabilities = opts.capabilities })
 lspconfig.cssls.setup({ on_attach = opts.on_attach, capabilities = opts.capabilities })
@@ -84,26 +84,19 @@ lspconfig.tsserver.setup({
 })
 
 lspconfig.jsonls.setup({
-	on_attach = opts.on_attach,
-	capabilities = opts.capabilities,
-	settings = jsonl_setup.settings,
-	commands = {
-		Format = {
-			function()
-				vim.lsp.buf.range_formatting({}, { 0, 0 }, { vim.fn.line("$"), 0 })
-			end,
-		},
-	},
+  on_attach = opts.on_attach,
+  capabilities = opts.capabilities,
+  settings = jsonls_setup.settings,
 })
 
 lspconfig.gopls.setup({
-	on_attach = opts.on_attach,
-	capabilities = opts.capabilities,
-	settings = gopls_setup.settings,
+  on_attach = opts.on_attach,
+  capabilities = opts.capabilities,
+  settings = gopls_setup.settings,
 })
 
 lspconfig.lua_ls.setup({
-	on_attach = opts.on_attach,
-	capabilities = opts.capabilities,
-	settings = lua_ls_setup.settings,
+  on_attach = opts.on_attach,
+  capabilities = opts.capabilities,
+  settings = lua_ls_setup.settings,
 })

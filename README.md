@@ -154,6 +154,7 @@ S = delete whole line, go into insert mode
 s = delete character and into insert mode
 f + letter = jump to first instance of that capital letter. ‘;’ goes to next instance of letter, ',' goes to prev
 F = f but in reverse. 
+dt_ = delete until _ (_ can be any charater)
 
 { = jump to paragraph above (non contiguous code)
 } = jump to paragraph below (non contiguous code)
@@ -161,7 +162,14 @@ Ctrl + d = jump half a page
 Ctrl + u = jump up half a page
 % = jump between bracket pairs
 
-ci{ = delete contents of brackets and insert mode
+ci{ = delete contents of brackets and go into insert mode
+ci" = delete contents of quotes  and go into insert mode
+etc...
+
+zfa{ = collapse code block (hovering on {)
+zo = expand collapsed code block
+zc = collapse code block
+za = toggle expand/collapse code block
 
 :bn = buffer next
 :bp = buffer previous

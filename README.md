@@ -156,6 +156,12 @@ f + letter = jump to first instance of that capital letter. ‘;’ goes to next
 F = f but in reverse. 
 dt_ = delete until _ (_ can be any charater)
 
+Multiline insert:
+    <C-q> to go into visual block 
+    j or k or whatever to select lines 
+    shift + i to enter insert, and type what you want 
+    esc to exit editing, at which point change will apply to all lines selected
+
 { = jump to paragraph above (non contiguous code)
 } = jump to paragraph below (non contiguous code)
 Ctrl + d = jump half a page

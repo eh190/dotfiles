@@ -11,11 +11,6 @@ if not mason_lsp_status_ok then
   return
 end
 
-local mason_null_ls_status_ok, mason_null_ls = pcall(require, "mason-null-ls")
-if not mason_null_ls_status_ok then
-  return
-end
-
 mason.setup({
   ui = {
     icons = {
@@ -42,14 +37,6 @@ mason_lspconfig.setup({
 		"dockerls",
 		"angularls",
 	},
-})
-
--- Passes formatters installed by Mason to null-ls for format on save
-mason_null_ls.setup({
-  ensure_installed = {
-    "prettier",
-    -- "eslint_d",
-  },
 })
 
 local lsp_status_ok, lspconfig = pcall(require, "lspconfig")

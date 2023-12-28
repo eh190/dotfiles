@@ -70,19 +70,16 @@ return packer.startup(function(use)
 	use("neovim/nvim-lspconfig") -- enable LSP
 	use("williamboman/mason.nvim") -- simple to use language server installer
 	use("williamboman/mason-lspconfig.nvim")
-	use("jose-elias-alvarez/null-ls.nvim") -- Formatting and linting
-	use("jayp0521/mason-null-ls.nvim") -- links null-ls formatting/linting to mason LSP
 
 	use("windwp/nvim-autopairs") 	-- Auto Pairs -- integrates with both cmp and treesitter
 	use("lewis6991/gitsigns.nvim") 	-- Gitsigns
 	use("tpope/vim-fugitive") 	-- Git (fugitive)
 	use("ThePrimeagen/harpoon") 	-- Harpoon
-  use("j-morano/buffer_manager.nvim") -- pop up window to easy delete buffers
 
 -- Telescope
 	use({
-		"nvim-telescope/telescope.nvim", 	
-		tag = "0.1.0",
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.5",
 	})
 	-- Treesitter
 	use({

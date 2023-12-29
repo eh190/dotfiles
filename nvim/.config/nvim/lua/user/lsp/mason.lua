@@ -60,6 +60,13 @@ lspconfig.emmet_ls.setup({ on_attach = opts.on_attach, capabilities = opts.capab
 lspconfig.dockerls.setup({ on_attach = opts.on_attach, capabilities = opts.capabilities })
 lspconfig.rust_analyzer.setup({ on_attach = opts.on_attach, capabilities = opts.capabilities })
 lspconfig.clangd.setup({ on_attach = opts.on_attach, capabilities = opts.capabilities })
+lspconfig.eslint.setup({
+  on_attach = opts.on_attach,
+  capabilities = opts.capabilities,
+  settings = { workingDirectory = {{"./api", "./ui"}}},
+  -- root_dir = lspconfig.util.find_node_modules_ancestor
+  root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git")
+})
 
 lspconfig.tsserver.setup({
 	on_attach = opts.on_attach,

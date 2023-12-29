@@ -36,7 +36,8 @@ mason_lspconfig.setup({
 		"emmet_ls",
 		"dockerls",
 		"angularls",
-	},
+    "eslint"
+  },
 })
 
 local lsp_status_ok, lspconfig = pcall(require, "lspconfig")
@@ -63,18 +64,19 @@ lspconfig.clangd.setup({ on_attach = opts.on_attach, capabilities = opts.capabil
 lspconfig.eslint.setup({
   on_attach = opts.on_attach,
   capabilities = opts.capabilities,
-  settings = { workingDirectory = {{"./api", "./ui"}}},
-  -- root_dir = lspconfig.util.find_node_modules_ancestor
-  root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git")
 })
 
 lspconfig.tsserver.setup({
-	on_attach = opts.on_attach,
-	capabilities = opts.capabilities,
-	-- run lsp for javascript in any directory
-	-- root_dir = function()
-	-- 	return vim.loop.cwd()
-	-- end,
+  on_attach = opts.on_attach,
+  capabilities = opts.capabilities,
+  -- run lsp for javascript in any directory
+  -- root_dir = function()
+  -- 	return vim.loop.cwd()
+  -- end,
+  -- Prevents tsserver spawning multiple processes
+  root_dir = function(...)
+    return require("lspconfig.util").root_pattern(".git")(...)
+  end
 })
 
 lspconfig.jsonls.setup({

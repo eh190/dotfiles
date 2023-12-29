@@ -77,7 +77,6 @@ return packer.startup(function(use)
   use("lewis6991/gitsigns.nvim") -- Gitsigns
   use("tpope/vim-fugitive")      -- Git (fugitive)
   use("ThePrimeagen/harpoon")    -- Harpoon
-  use("mfussenegger/nvim-lint")
 
   -- Telescope
   use({

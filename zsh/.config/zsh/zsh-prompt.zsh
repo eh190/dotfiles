@@ -4,7 +4,7 @@
 #source woefe/git-prompt. Gives us a fully fleshed out git prompt
 source $ZDOTDIR/plugins/git-prompt.zsh/git-prompt.zsh 
 # woefe/git-prompt customisation. See https://github.com/woefe/git-prompt.zsh for docs
-ZSH_THEME_GIT_PROMPT_PREFIX="%F{green}%f "
+ZSH_THEME_GIT_PROMPT_PREFIX="%F{green}%f"
 ZSH_THEME_GIT_PROMPT_SUFFIX=" "
 ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[green]%}"
 ZSH_THEME_GIT_PROMPT_SEPARATOR=""

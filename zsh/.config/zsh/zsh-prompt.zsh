@@ -43,7 +43,7 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED=""
 ZSH_THEME_GIT_PROMPT_STASHED=""
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
-PROMPT='%(?:%{$fg[green]%}➜ :%{$fg[red]%}➜ )%B%F{cyan}%~%f%b $(gitprompt)'
+PROMPT='%(?:%{$fg[green]%}➜ :%{$fg[red]%}➜ )%B%F{cyan}%~%f $(gitprompt)%b'
 
 
 # Right prompt

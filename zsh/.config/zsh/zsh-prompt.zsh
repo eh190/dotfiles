@@ -4,20 +4,47 @@
 #source woefe/git-prompt. Gives us a fully fleshed out git prompt
 source $ZDOTDIR/plugins/git-prompt.zsh/git-prompt.zsh 
 # woefe/git-prompt customisation. See https://github.com/woefe/git-prompt.zsh for docs
-ZSH_THEME_GIT_PROMPT_PREFIX="%F{green}%f"
+# ZSH_THEME_GIT_PROMPT_PREFIX="%F{green}%f"
+# ZSH_THEME_GIT_PROMPT_SUFFIX=" "
+# ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[green]%}"
+# ZSH_THEME_GIT_PROMPT_SEPARATOR=""
+# ZSH_THEME_GIT_PROMPT_STAGED=" %B%{$fg[yellow]%}✚"
+# ZSH_THEME_GIT_PROMPT_UNSTAGED=" %B%{$fg[yellow]%}!"
+# ZSH_THEME_GIT_PROMPT_UNTRACKED=" %B%{$fg[blue]%}?"
+# ZSH_GIT_PROMPT_SHOW_STASH=1
+# ZSH_THEME_GIT_PROMPT_STASHED=" %{$fg[blue]%}⚑"
+# ZSH_THEME_GIT_PROMPT_BEHIND=" %{$fg_bold[red]%}↓"
+# ZSH_THEME_GIT_PROMPT_AHEAD=" %{$fg_bold[green]%}↑"
+# ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg_bold[green]%}✔"
+# # Prompt using woefe/git-prompt.zsh
+# PROMPT='%(?:%{$fg[green]%}➜ :%{$fg[red]%}➜ )%B%F{blue}%~%f $(gitprompt)%b'
+
+
+# ROBBY RUSSELL USING WOEFE PROMPT
+ZSH_GIT_PROMPT_SHOW_UPSTREAM="no"
+ZSH_GIT_PROMPT_SHOW_TRACKING_COUNTS=0
+ZSH_GIT_PROMPT_SHOW_LOCAL_COUNTS=0
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg_bold[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX=" "
-ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[green]%}"
+ZSH_THEME_GIT_PROMPT_UNSTAGED="%{$fg_bold[blue]%}) %{$fg[yellow]%}%1{✗%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 ZSH_THEME_GIT_PROMPT_SEPARATOR=""
-ZSH_THEME_GIT_PROMPT_STAGED=" %B%{$fg[yellow]%}✚"
-ZSH_THEME_GIT_PROMPT_UNSTAGED=" %B%{$fg[yellow]%}!"
-ZSH_THEME_GIT_PROMPT_UNTRACKED=" %B%{$fg[blue]%}?"
-ZSH_GIT_PROMPT_SHOW_STASH=1
-ZSH_THEME_GIT_PROMPT_STASHED=" %{$fg[blue]%}⚑"
-ZSH_THEME_GIT_PROMPT_BEHIND=" %{$fg_bold[red]%}↓"
-ZSH_THEME_GIT_PROMPT_AHEAD=" %{$fg_bold[green]%}↑"
-ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg_bold[green]%}✔"
-# Prompt using woefe/git-prompt.zsh
-PROMPT='%(?:%{$fg[green]%}➜ :%{$fg[red]%}➜ )%B%F{blue}%~%f $(gitprompt)%b'
+ZSH_THEME_GIT_PROMPT_DETACHED=""
+ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[red]%}"
+ZSH_THEME_GIT_PROMPT_UPSTREAM_SYMBOL=""
+ZSH_THEME_GIT_PROMPT_UPSTREAM_NO_TRACKING=""
+ZSH_THEME_GIT_PROMPT_UPSTREAM_PREFIX=""
+ZSH_THEME_GIT_PROMPT_UPSTREAM_SUFFIX=""
+ZSH_THEME_GIT_PROMPT_BEHIND=""
+ZSH_THEME_GIT_PROMPT_AHEAD=""
+ZSH_THEME_GIT_PROMPT_UNMERGED=""
+ZSH_THEME_GIT_PROMPT_STAGED=""
+ZSH_THEME_GIT_PROMPT_UNTRACKED=""
+ZSH_THEME_GIT_PROMPT_STASHED=""
+ZSH_THEME_GIT_PROMPT_CLEAN=""
+
+PROMPT='%(?:%{$fg[green]%}➜ :%{$fg[red]%}➜ )%B%F{cyan}%~%f%b $(gitprompt)'
+
 
 # Right prompt
 # RPROMPT='%{$fg[white]%}%*'

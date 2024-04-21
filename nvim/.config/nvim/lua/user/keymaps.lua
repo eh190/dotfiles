@@ -39,7 +39,7 @@ keymap("n", "<leader>ls", "<cmd>source ~/mysession.nvim<cr><cmd>echo 'previous s
 
 -- Telescope
 keymap("n", "<leader>pf", "<cmd>Telescope find_files<cr>", opts)
-keymap("n", "<leader>tlg", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<leader>tl", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>tgs", "<cmd>Telescope git_status<cr>", opts)
 keymap("n", "<leader>tr", "<cmd>Telescope lsp_references<cr>", opts)
 keymap("n", "<leader>ts", "<cmd>Telescope git_stash<cr>", opts)

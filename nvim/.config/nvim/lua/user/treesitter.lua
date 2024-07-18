@@ -21,6 +21,7 @@ configs.setup({
 		"solidity",
 		"tsx",
 		"dockerfile",
+    "yaml"
 	},
 	sync_install = false,
 	ignore_install = { "" }, -- List of parsers to ignore installing

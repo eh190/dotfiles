@@ -24,19 +24,20 @@ mason.setup({
 -- Add language servers here. Auto install on vim start if not already. Maps to 'mason' language servers (:Mason to see mason LS's)
 -- Once installed, call setup() on that LS (following pattern below). Can pass opts to LS if we want to override default config
 mason_lspconfig.setup({
-	ensure_installed = {
-		"clangd",
-		"cssls",
-		"gopls",
-		"html",
-		"jsonls",
-		"tsserver",
-		"lua_ls",
-		"rust_analyzer",
-		"emmet_ls",
-		"dockerls",
-		"angularls",
-    "eslint"
+  ensure_installed = {
+    "clangd",
+    "cssls",
+    "gopls",
+    "html",
+    "jsonls",
+    "tsserver",
+    "lua_ls",
+    "rust_analyzer",
+    "emmet_ls",
+    "dockerls",
+    "angularls",
+    "eslint",
+    "yamlls"
   },
 })
 
@@ -61,6 +62,22 @@ lspconfig.emmet_ls.setup({ on_attach = opts.on_attach, capabilities = opts.capab
 lspconfig.dockerls.setup({ on_attach = opts.on_attach, capabilities = opts.capabilities })
 lspconfig.rust_analyzer.setup({ on_attach = opts.on_attach, capabilities = opts.capabilities })
 lspconfig.clangd.setup({ on_attach = opts.on_attach, capabilities = opts.capabilities })
+lspconfig.yamlls.setup({
+  on_attach = opts.on_attach,
+  capabilities = opts.capabilities,
+  settings = {
+    yaml = {
+      schemas = {
+        ['https://bitbucket.org/atlassianlabs/intellij-bitbucket-references-plugin/raw/master/src/main/resources/schemas/bitbucket-pipelines.schema.json'] =
+        '*.yml'
+      },
+      format = {
+        enable = true
+      }
+    }
+  }
+})
+
 lspconfig.eslint.setup({
   on_attach = opts.on_attach,
   capabilities = opts.capabilities,

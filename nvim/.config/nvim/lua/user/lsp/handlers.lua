@@ -93,6 +93,9 @@ M.on_attach = function(client, bufnr)
 	lsp_keymaps(bufnr)
 	lsp_highlight_document(client)
 	-- format_buf(client, bufnr)
+  if client.name == "yamlls" then
+    client.server_capabilities.documentFormattingProvider = true
+  end 
 end
 
 local cmp_status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")

@@ -1,5 +1,29 @@
 local fn = vim.fn
 
+-- You must run this or `PackerSync` whenever you make changes to your plugin configuration
+-- Regenerate compiled loader file
+-- :PackerCompile
+
+-- Remove any disabled or unused plugins
+-- :PackerClean
+
+-- Clean, then install missing plugins
+-- :PackerInstall
+
+-- Clean, then update and install plugins
+-- supports the `--preview` flag as an optional first argument to preview updates
+-- :PackerUpdate
+
+-- Perform `PackerUpdate` and then `PackerCompile`
+-- supports the `--preview` flag as an optional first argument to preview updates
+-- :PackerSync
+
+-- Show list of installed plugins
+-- :PackerStatus
+
+-- Loads opt plugin immediately
+-- :PackerLoad completion-nvim ale
+
 -- Packer snapshots saved to ~/AppData/Local/Temp/nvim/packer.nvim (windows)
 
 -- Automatically install packer
@@ -55,6 +79,7 @@ return packer.startup(function(use)
   use("lunarvim/darkplus.nvim")
   use("rebelot/kanagawa.nvim")
   use("rose-pine/neovim")
+  use('Mofiqul/vscode.nvim')
 
   -- cmp plugins
   use("hrsh7th/nvim-cmp")         -- The completion plugin

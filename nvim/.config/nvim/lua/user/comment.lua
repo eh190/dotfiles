@@ -3,8 +3,8 @@ if not status_ok then
 	return
 end
 
-local status_ok, ts_context_comment = pcall(require, "ts_context_commentstring")
-if not status_ok then
+local context_status_ok, ts_context_comment = pcall(require, "ts_context_commentstring")
+if not context_status_ok then
 	return
 end
 

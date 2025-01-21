@@ -60,6 +60,9 @@ keymap("n", "<leader>oc", ":edit %<.ts<CR>", opts)
 keymap("n", "<leader>ot", ":edit %<.html<CR>", opts)
 keymap("n", "<leader>os", ":edit %<.scss<CR>", opts)
 
+-- Gitsigns 
+keymap("n", "<leader>gsb", ":Gitsigns blame_line<CR>", opts)
+
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)

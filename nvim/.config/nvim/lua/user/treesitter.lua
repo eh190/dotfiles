@@ -7,6 +7,7 @@ end
 configs.setup({
 	ensure_installed = {
 		"c",
+    "cpp",
 		"rust",
 		"toml",
 		"go",

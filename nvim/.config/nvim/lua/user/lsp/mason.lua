@@ -30,7 +30,7 @@ mason_lspconfig.setup({
     "gopls",
     "html",
     "jsonls",
-    "tsserver",
+    "ts_ls",
     "lua_ls",
     "rust_analyzer",
     "emmet_ls",
@@ -83,14 +83,14 @@ lspconfig.eslint.setup({
   capabilities = opts.capabilities,
 })
 
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
   on_attach = opts.on_attach,
   capabilities = opts.capabilities,
   -- run lsp for javascript in any directory
   -- root_dir = function()
   -- 	return vim.loop.cwd()
   -- end,
-  -- Prevents tsserver spawning multiple processes
+  -- Prevents ts_ls spawning multiple processes
   root_dir = function(...)
     return require("lspconfig.util").root_pattern(".git")(...)
   end

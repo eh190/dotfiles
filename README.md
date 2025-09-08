@@ -10,9 +10,10 @@ My preference is to use iterm2 (mac) or Windows Terminal (with GitBash/WSL profi
 
 - Package Manager (Homebrew/apt/chocolatey)
 - fnm (node)
-- neovim
+- neovim (installation below)
 - ripgrep (required for telescope grep)
 - fzf
+- ohmyzsh (for zsh and theme ease)
 
 ### \*nix OS (including WSL):
 
@@ -39,6 +40,12 @@ Youtube vid explaining stow use https://www.youtube.com/watch?v=90xMTKml9O0&t=37
 - Symlink nvim dir to ~/AppData/Local/nvim (`mklink /D C:\Users\<user>\AppData\Local\nvim C:\Users\<user>\dotfiles\nvim\.config\nvim`)
 
 ## NVIM
+git clone -b v0.10.4 https://github.com/neovim/neovim.git $HOME/personal/neovim
+cd $HOME/personal/neovim
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
+
+installs to /usr/local/bin
 
 - This is my lua config
 - Uses Packer as the plug in manager. This should self install on start up if not already installed, and install/update any plugins with file changes. Run `:PackerInstall` to manually install, or `:PackerClean` to remove plugins
@@ -98,6 +105,7 @@ Youtube vid explaining stow use https://www.youtube.com/watch?v=90xMTKml9O0&t=37
 
 ## ZSH
 
+- UPDATE - currently using ohmyzsh instead of this - just place ohmzsh dir in .config next to .zshrc
 - Plugins will install automatically once zsh opened.
 - It is a minimal config, with aliases, and some helper functions for installing plugins and sourcing files.
 - Important commands worth noting are:

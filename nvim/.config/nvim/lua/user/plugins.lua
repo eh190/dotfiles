@@ -94,9 +94,8 @@ return packer.startup(function(use)
   use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
   -- LSP
-  use("neovim/nvim-lspconfig")   -- enable LSP
-  use("williamboman/mason.nvim") -- simple to use language server installer
-  use("williamboman/mason-lspconfig.nvim")
+  use("neovim/nvim-lspconfig")   -- a collection of LSP server configurations
+  use("williamboman/mason.nvim") -- simple to use language server package manager
 
   use("windwp/nvim-autopairs")   -- Auto Pairs -- integrates with both cmp and treesitter
   use("lewis6991/gitsigns.nvim") -- Gitsigns
@@ -106,7 +105,7 @@ return packer.startup(function(use)
   -- Telescope
   use({
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.5",
+    tag = "0.1.8",
   })
   -- Treesitter
   use({

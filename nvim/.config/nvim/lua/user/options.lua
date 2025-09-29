@@ -37,6 +37,7 @@ vim.opt.scrolloff = 8 -- is one of my fav
 vim.opt.sidescrolloff = 8
 vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
 vim.opt.guicursor = "" -- set fat cursor in insert mode nvimh
+vim.o.winborder = "rounded"
 vim.g.netrw_liststyle = 3
 -- vim.g.netrw_keepdir = 0 -- keep current dir and browsing dir synced.
 

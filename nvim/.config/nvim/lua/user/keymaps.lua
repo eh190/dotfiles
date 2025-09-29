@@ -48,8 +48,7 @@ keymap("n", "<leader>tb", "<cmd>Telescope buffers<cr>", opts)
 keymap("n", "<leader>tof", "<cmd>Telescope oldfiles<cr>", opts)
 
 -- Format
--- see handlers.lua for definition of :Format cmd (uses lsp)
-keymap("n", "<leader>fs", ":Format<cr><cmd>w<cr>", opts) -- Format and Save
+keymap("n", "<leader>fs", "<cmd> lua vim.lsp.buf.format()<cr><cmd>w<cr>", opts) -- Format and Save
 keymap("n", "<leader>fp", "mt<cmd>%!npx prettier --stdin-filepath %<cr>'t", opts) -- requires prettier binary installed
 keymap("n", "<leader>fc", "<cmd>%!clang-format --assume-filename=%<cr>", opts) -- requires clang-format binary installed
 vim.keymap.set({"x", "v"}, "<leader>fp", ":'<,'>!npx prettier --stdin-filepath %<cr>", opts) -- format selection with prettier (needs to be complete block - it can't work out the context of just a few lines)

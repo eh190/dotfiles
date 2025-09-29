@@ -5,6 +5,7 @@
 -- Neovim will merge all default and manual configs together automatically
 
 -- mason Docs https://github.com/williamboman/mason.nvim - package manager for LSPs
+-- mason lsps installed to ~/.local/share/nvim/mason/packages
 local mason_status_ok, mason = pcall(require, "mason")
 if not mason_status_ok then
   return

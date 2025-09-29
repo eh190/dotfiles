@@ -33,11 +33,12 @@ telescope.setup({
 
     mappings = {
       i = {
-        ["<C-n>"] = actions.cycle_history_next,
-        ["<C-p>"] = actions.cycle_history_prev,
-
-        ["<C-j>"] = actions.move_selection_next,
-        ["<C-k>"] = actions.move_selection_previous,
+        ["<C-j>"] = actions.cycle_history_next,
+        ["<C-k>"] = actions.cycle_history_prev,
+        -- cant use in current version ["<C-h>"] = actions.preview_scrolling_left,
+        -- cant use in current version ["<C-l>"] = actions.preview_scrolling_right,
+        ["<C-n>"] = actions.move_selection_next,
+        ["<C-p>"] = actions.move_selection_previous,
       },
     },
   },

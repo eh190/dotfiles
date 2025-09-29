@@ -76,9 +76,6 @@ return packer.startup(function(use)
   use("numToStr/Comment.nvim") -- Easily comment stuff
 
   -- Colorschemes
-  use("lunarvim/darkplus.nvim")
-  use("rebelot/kanagawa.nvim")
-  use("rose-pine/neovim")
   use('Mofiqul/vscode.nvim')
 
   -- cmp plugins

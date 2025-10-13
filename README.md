@@ -40,7 +40,7 @@ Youtube vid explaining stow use https://www.youtube.com/watch?v=90xMTKml9O0&t=37
 - Symlink nvim dir to ~/AppData/Local/nvim (`mklink /D C:\Users\<user>\AppData\Local\nvim C:\Users\<user>\dotfiles\nvim\.config\nvim`)
 
 ## NVIM
-git clone -b v0.10.4 https://github.com/neovim/neovim.git $HOME/personal/neovim
+git clone -b v0.11.4 https://github.com/neovim/neovim.git $HOME/personal/neovim
 cd $HOME/personal/neovim
 make CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
